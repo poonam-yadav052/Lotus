@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td{border:1px solid #ccc;}
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+    border-top: 1px solid #ccc;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+padding: 4px;
+line-height: normal;
+outline:none; 
+}
+.input-sm {height: 27px;line-height: 27px;}
+.box {border-radius:0px;border: 1px solid #d2d6de;box-shadow: none;}
+.pagination {margin: 0px 0;border-radius: 0px;float: right;}
+.pagination>li>a, .pagination>li>span{ padding: 5px 10px;}
+.content-header>h1 {font-size: 20px;}
+.dataTables_info{line-height:30px;}
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header>img{height: 50px;width: 50px;border: 2px solid;}
+.main-footer{padding:10px 15px;}
+.btn {border-radius: 0;box-shadow: none;border: 0;}
+.table{margin-bottom:10px;}
