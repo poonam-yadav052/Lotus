@@ -8,8 +8,9 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Upload Vendor Data</li>
       </ol>
+      
     </section>
-
+    <div class="row"><div class="col-md-12">{{uploadfileresult}}</div></div>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -18,26 +19,43 @@
           <!-- Horizontal Form -->
           <div class="box">
             <!-- form start -->
-            <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group" style="margin-bottom:0px">
-                  <label for="inputEmail3" style="text-align: left;" class="col-sm-3 control-label">Upload Vendor Data</label>
-                  <div class="col-sm-6">
-                    <button type="button" class="btn btn-primary">Upload</button>
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="form-horizontal">                   
+                 
+               
+               <div class="form-group col-xs-12">
+                    <label for="uploadfiletype">File type</label>
+                    
+                    <select class="form-control"  formControlName="uploadfiletype" [ngClass]="{ 'is-invalid': submitted && f.uploadfiletype.errors }">
+                      <option value="">--select type--</option>
+                      <option value="SAP">SAP</option>
+                      <option value="BPCS">BPCS</option>
+                      <option value="Bank">Bank</option>   
+                      <option value="SAP_Vendor">SAP Vendor List</option>   
+                      <option value="BPCS_Vendor">BPCS Vendor List</option>                 
+                    </select>
+                    <div *ngIf="submitted && f.uploadfiletype.errors" class="invalid-feedback">
+                   <div *ngIf="f.uploadfiletype.errors.required">Please select type</div>
+             </div>
                   </div>
-                </div>
-                
-                
-              </div>
-              <!-- /.box-body -->
-              
-            </form>
+                  
+                  <div class="form-group col-xs-12">
+                    <label for="fileupload">File</label>
+                    <input class="form-control"  type="file" formControlName="fileupload" (change)="handleFileInput($event.target.files)"/>
+                    <div *ngIf="submitted && f.fileupload.errors" class="invalid-feedback">
+                   <div *ngIf="f.fileupload.errors.required">Please select file</div>
+                  </div>
+                  <div *ngIf="filetypeerror" class="invalid-feedback">
+                Invalid file type. please select valid file
+             </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-2">Upload File</button>
+                </form>
           </div>
           <!-- /.box -->
           
           <div class="box">
                 <div class="box-header">
-                   <h3 class="box-title">Data Table Vendor Data</h3>
+                   <h3 class="box-title">Uploaded History</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -66,95 +84,22 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                <thead>
                                   <tr role="row">
-                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">column 1</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">column 2</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">column 3</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 156px;">column 4</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 112px;">....</th>
-                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 112px;">column n</th>
+                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Batch ID</th>
+                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">File Name</th>
+                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">File Type</th>
+                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 156px;">Uploaded Date</th>
                                   </tr>
                                </thead>
                                <tbody>
-                                  <tr role="row" class="odd">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Firefox 1.0</td>
-                                     <td>Win 98+ / OSX.2+</td>
-                                     <td>1.7</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="even">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Firefox 1.5</td>
-                                     <td>Win 98+ / OSX.2+</td>
-                                     <td>1.8</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="odd">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Firefox 2.0</td>
-                                     <td>Win 98+ / OSX.2+</td>
-                                     <td>1.8</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="even">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Firefox 3.0</td>
-                                     <td>Win 2k+ / OSX.3+</td>
-                                     <td>1.9</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
+                                  
                                   <tr role="row" class="odd">
                                      <td class="sorting_1">Gecko</td>
                                      <td>Camino 1.0</td>
                                      <td>OSX.2+</td>
                                      <td>1.8</td>
-                                     <td>A</td>
-                                     <td>A</td>
+                                    
                                   </tr>
-                                  <tr role="row" class="even">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Camino 1.5</td>
-                                     <td>OSX.3+</td>
-                                     <td>1.8</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="odd">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Netscape 7.2</td>
-                                     <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                     <td>1.7</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="even">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Netscape Browser 8</td>
-                                     <td>Win 98SE+</td>
-                                     <td>1.7</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="odd">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Netscape Navigator 9</td>
-                                     <td>Win 98+ / OSX.2+</td>
-                                     <td>1.8</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
-                                  <tr role="row" class="even">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Mozilla 1.0</td>
-                                     <td>Win 95+ / OSX.1+</td>
-                                     <td>1</td>
-                                     <td>A</td>
-                                     <td>A</td>
-                                  </tr>
+                               
                                </tbody>
                               
                             </table>
