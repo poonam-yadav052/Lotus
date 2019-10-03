@@ -16,15 +16,14 @@ export class UdvdataComponent implements OnInit {
   uploadfileresult="";
   modalref:BsModalRef;
   fileToUpload: File = null;
+  uploadeddata:FileUploaded[]=[];
   filetypesallowed:string[]=["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                               "application/vnd.ms-excel"]
   constructor(private formBuilder: FormBuilder,
     private fileuploadservice:UploadFileService,
     private spinner:NgxSpinnerService,
     private modalservice: BsModalService) { 
-
       modalref: BsModalRef;
-
       this.checkoutForm = this.formBuilder.group({
         uploadfiletype: ['',[Validators.required]],
         fileupload: ['',[Validators.required]]
@@ -33,6 +32,16 @@ export class UdvdataComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.spinner.show();
+    this.fileuploadservice.getuploadfilehistory().subscribe(
+    data=>{
+      this.uploadeddata=data;
+      console.log(this.uploadeddata);
+      this.spinner.hide();
+    },
+    error=>{
+      this.spinner.hide();
+    })
   }
 
   handleFileInput(files: FileList) {
@@ -74,4 +83,11 @@ export class UdvdataComponent implements OnInit {
     
   }
 
+}
+
+class FileUploaded{
+  UploadedFilesID;
+  FileName;
+  FileType;
+  UploadedDate;
 }

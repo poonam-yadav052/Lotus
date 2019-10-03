@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BsDatepickerModule,BsModalRef,ModalModule,CarouselModule} from 'ngx-bootstrap';
 import { UploadFileService } from './upload-file.service';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { UploadFileService } from './upload-file.service';
     ModalModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule, NgxPaginationModule
   ],
   providers: [UploadFileService,BsModalRef],
   bootstrap: [AppComponent]

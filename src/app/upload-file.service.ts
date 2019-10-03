@@ -11,7 +11,7 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-  url="https://localhost:44314/api/FileUpload/uploadfile";
+  url="https://localhost:44314/api/FileUpload/";
   
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,12 @@ export class UploadFileService {
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);
     formData.append('type',filetype);
-    return this.http.post(this.url,formData,httpOptions)
+    return this.http.post(this.url+"uploadfile",formData,httpOptions)
+  }
+
+  getuploadfilehistory():Observable<any>{
+    console.log(this.url+"getuploadfilehistory");
+    return this.http.get(this.url+"getuploadfilehistory",httpOptions)
   }
 
 

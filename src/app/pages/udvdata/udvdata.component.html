@@ -22,7 +22,7 @@
             <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="form-horizontal">                   
                  
                
-               <div class="form-group col-xs-12">
+               <div class="form-group col-xs-6">
                     <label for="uploadfiletype">File type</label>
                     
                     <select class="form-control"  formControlName="uploadfiletype" [ngClass]="{ 'is-invalid': submitted && f.uploadfiletype.errors }">
@@ -38,7 +38,7 @@
              </div>
                   </div>
                   
-                  <div class="form-group col-xs-12">
+                  <div class="form-group col-xs-6">
                     <label for="fileupload">File</label>
                     <input class="form-control"  type="file" formControlName="fileupload" (change)="handleFileInput($event.target.files)"/>
                     <div *ngIf="submitted && f.fileupload.errors" class="invalid-feedback">
@@ -92,11 +92,11 @@
                                </thead>
                                <tbody>
                                   
-                                  <tr role="row" class="odd">
-                                     <td class="sorting_1">Gecko</td>
-                                     <td>Camino 1.0</td>
-                                     <td>OSX.2+</td>
-                                     <td>1.8</td>
+                                  <tr *ngFor="let row of uploadeddata | paginate: { itemsPerPage: 10, currentPage: p }" role="row" class="odd">
+                                     <td class="sorting_1">{{row.UploadedFilesID}}</td>
+                                     <td>{{row.FileName}}</td>
+                                     <td>{{row.FileType}}</td>
+                                     <td>{{row.UploadedDate}}</td>
                                     
                                   </tr>
                                
@@ -111,23 +111,14 @@
                          </div>
                          <div class="col-sm-7">
                             <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                               <ul class="pagination">
-                                  <li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li>
-                                  <li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li>
-                                  <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li>
-                                  <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li>
-                                  <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a></li>
-                                  <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a></li>
-                                  <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li>
-                                  <li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li>
-                               </ul>
+                                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
                             </div>
                          </div>
                       </div>
                    </div>
                 </div>
                 <!-- /.box-body -->
-             </div>
+          </div>
           <!-- /.box -->
         </div>
         <!--/.col (right) -->
