@@ -15,6 +15,7 @@ export class UdvdataComponent implements OnInit {
   filetypeerror=false;
   uploadfileresult="";
   modalref:BsModalRef;
+  itemsPerPage=10
   fileToUpload: File = null;
   uploadeddata:FileUploaded[]=[];
   filetypesallowed:string[]=["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -32,6 +33,10 @@ export class UdvdataComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.getUploadedData();
+  }
+
+  getUploadedData(){
     this.spinner.show();
     this.fileuploadservice.getuploadfilehistory().subscribe(
     data=>{
@@ -73,12 +78,14 @@ export class UdvdataComponent implements OnInit {
           this.uploadfileresult="File Uploaded Successfully";
           //this.modalref = this.modalservice.show("ServiceStatus", { backdrop: 'static', keyboard: false });
         }
+        this.getUploadedData();
         this.checkoutForm.reset();
       },
       error=>{
+        this.spinner.hide();
         console.log("Error")
         console.log(error)
-        this.uploadfileresult="File Upload failed,please try again";
+        this.uploadfileresult=error.error.Error;
       })
     
   }
