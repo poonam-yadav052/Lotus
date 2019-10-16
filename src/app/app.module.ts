@@ -13,6 +13,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {BsDatepickerModule,BsModalRef,ModalModule,CarouselModule} from 'ngx-bootstrap';
 import { UploadFileService } from './upload-file.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DuplicatepaymentComponent,
     PaymentadvicenoteComponent,
     PaymentreconsilationComponent,
-	LoginComponent
+	LoginComponent,
+	ViewhistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { DuplicatepaymentComponent } from './pages/duplicatepayment/duplicatepay
 import { PaymentadvicenoteComponent } from './pages/paymentadvicenote/paymentadvicenote.component';
 import { PaymentreconsilationComponent } from './pages/paymentreconsilation/paymentreconsilation.component';
 import {LoginComponent} from './login/login.component';
+import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
 
 
 
@@ -16,8 +17,8 @@ const routes: Routes = [
   {path:'paymentadvicenote', component: PaymentadvicenoteComponent},
   {path: 'paymentreconsilation', component:PaymentreconsilationComponent},
 	 {path: 'login', component: LoginComponent},
-  
-
+   {path: 'viewhistory', component: ViewhistoryComponent},
+   {path: '', component: LoginComponent},
 
 ];
 
@@ -26,4 +27,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, UdvdataComponent, DuplicatepaymentComponent, PaymentadvicenoteComponent, PaymentreconsilationComponent ]
+export const routingComponents = [HomeComponent, UdvdataComponent, DuplicatepaymentComponent, PaymentadvicenoteComponent, PaymentreconsilationComponent,ViewhistoryComponent ]

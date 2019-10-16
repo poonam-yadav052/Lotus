@@ -12,6 +12,7 @@ const httpOptions = {
 export class UploadFileService {
 
   url="https://localhost:44314/api/FileUpload/";
+  //url="https://krios.azurewebsites.net/api/FileUpload/";
   
   constructor(private http: HttpClient) { }
 
@@ -25,6 +26,22 @@ export class UploadFileService {
   getuploadfilehistory():Observable<any>{
     console.log(this.url+"getuploadfilehistory");
     return this.http.get(this.url+"getuploadfilehistory",httpOptions)
+  }
+
+  getPaymentHistoryDup():Observable<any>{
+    return this.http.get(this.url+"GetPaymentAdviceHistoryDup",httpOptions);
+  }
+
+  GetGeneratePaymentAdvanceNote():Observable<any>{
+    return this.http.get(this.url+"GetGeneratePaymentAdvanceNote",httpOptions);
+  }
+
+  GeneratePaymentAdvanceNote():Observable<any>{
+    return this.http.get(this.url+"GeneratePaymentAdvanceNote",httpOptions);
+  }
+
+  getPaymentAdvisNoteHeader():Observable<any>{
+    return this.http.get(this.url+"getPaymentAdvisNoteHeader",httpOptions);
   }
 
 
