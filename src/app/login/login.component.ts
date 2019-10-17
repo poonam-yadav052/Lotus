@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           this.result=data;  
           localStorage.clear();
           localStorage.setItem('usertoken',"true");
-          this.router.navigate(['../plots/'+data['token']+'']);      
+          this.router.navigate(['../home/']);      
       },
       error=>{
         this.spinner.hide();
