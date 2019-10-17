@@ -17,6 +17,7 @@ outline:none;
 .navbar-nav>.user-menu>.dropdown-menu>li.user-header>img{height: 50px;width: 50px;border: 2px solid;}
 .main-footer{padding:10px 15px;}
 .btn {border-radius: 0;box-shadow: none;border: 0;}
+<<<<<<< HEAD
 .table{margin-bottom:10px;}
 
 
@@ -87,3 +88,6 @@ outline:none;
     }
     
 }
+=======
+.table{margin-bottom:10px;}
+>>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a

@@ -5,6 +5,7 @@ import { UdvdataComponent } from './pages/udvdata/udvdata.component';
 import { DuplicatepaymentComponent } from './pages/duplicatepayment/duplicatepayment.component';
 import { PaymentadvicenoteComponent } from './pages/paymentadvicenote/paymentadvicenote.component';
 import { PaymentreconsilationComponent } from './pages/paymentreconsilation/paymentreconsilation.component';
+<<<<<<< HEAD
 import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
@@ -18,14 +19,29 @@ const routes: Routes = [
   
   {path:'', component:ShellComponent,
   children:[
+=======
+import {LoginComponent} from './login/login.component';
+import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
+
+
+
+const routes: Routes = [
+>>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
   {path: 'home', component: HomeComponent},
   {path: 'udvdata', component: UdvdataComponent},
   {path:'duplicatepayment', component: DuplicatepaymentComponent},
   {path:'paymentadvicenote', component: PaymentadvicenoteComponent},
   {path: 'paymentreconsilation', component:PaymentreconsilationComponent},
+<<<<<<< HEAD
   {path: 'viewhistory', component: ViewhistoryComponent},
   ]
 }
+=======
+	 {path: 'login', component: LoginComponent},
+   {path: 'viewhistory', component: ViewhistoryComponent},
+   {path: '', component: LoginComponent},
+
+>>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
 ];
 
 @NgModule({
@@ -33,4 +49,8 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+<<<<<<< HEAD
 export const routingComponents = [LoginComponent, HeaderComponent,FooterComponent,SidebarComponent,ShellComponent, HomeComponent, UdvdataComponent, DuplicatepaymentComponent, PaymentadvicenoteComponent, PaymentreconsilationComponent,ViewhistoryComponent ]
+=======
+export const routingComponents = [HomeComponent, UdvdataComponent, DuplicatepaymentComponent, PaymentadvicenoteComponent, PaymentreconsilationComponent,ViewhistoryComponent ]
+>>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
