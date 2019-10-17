@@ -11,13 +11,8 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-<<<<<<< HEAD
- // url="https://localhost:44314/api/FileUpload/";
-  url="https://krios.azurewebsites.net/api/FileUpload/";
-=======
   url="https://localhost:44314/api/FileUpload/";
   //url="https://krios.azurewebsites.net/api/FileUpload/";
->>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
   
   constructor(private http: HttpClient) { }
 
@@ -47,6 +42,13 @@ export class UploadFileService {
 
   getPaymentAdvisNoteHeader():Observable<any>{
     return this.http.get(this.url+"getPaymentAdvisNoteHeader",httpOptions);
+  }
+
+  Login(username:string,password:string):Observable<any>{
+    const formData: FormData = new FormData();
+    formData.append('username', username);
+    formData.append('password',password);
+    return this.http.post(this.url+"Login",formData,httpOptions)
   }
 
 
