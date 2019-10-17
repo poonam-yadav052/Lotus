@@ -1,28 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DuplicatepaymentComponent } from './pages/duplicatepayment/duplicatepayment.component';
-import { PaymentadvicenoteComponent } from './pages/paymentadvicenote/paymentadvicenote.component';
 import { PaymentreconsilationComponent } from './pages/paymentreconsilation/paymentreconsilation.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule ,FormBuilder,FormGroup,ReactiveFormsModule,FormControl  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BsDatepickerModule,BsModalRef,ModalModule,CarouselModule} from 'ngx-bootstrap';
 import { UploadFileService } from './upload-file.service';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
+import { ShellComponent } from './shell/shell.component';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    DuplicatepaymentComponent,
-    PaymentadvicenoteComponent,
     PaymentreconsilationComponent,
-	LoginComponent,
-	ViewhistoryComponent
+    ShellComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +25,7 @@ import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component'
     ModalModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule, NgxPaginationModule
+    NgxSpinnerModule, NgxPaginationModule,MatButtonModule
   ],
   providers: [UploadFileService,BsModalRef],
   bootstrap: [AppComponent]

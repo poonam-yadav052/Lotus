@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   result:any;
   constructor(private formBuilder: FormBuilder,
-    private fileuploadservice:UploadFileService,
+    private service:UploadFileService,
     private spinner:NgxSpinnerService,
     private modalservice: BsModalService,private router:Router) { 
     this.loginForm = this.formBuilder.group({
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.spinner.show();
     // Process checkout data here
     
-    this.fileuploadservice.Login(this.f.username.value,this.f.password.value).subscribe(
+    this.service.Login(this.f.username.value,this.f.password.value).subscribe(
       data=>{
         console.log("Success")
         console.log(data)
