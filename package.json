@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "adminlte-with-angular8",
-=======
-  "name": "atlas",
->>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -16,18 +12,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.3",
-<<<<<<< HEAD
     "@angular/cdk": "^8.2.3",
-=======
->>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
     "@angular/common": "~8.0.3",
     "@angular/compiler": "~8.0.3",
     "@angular/core": "~8.0.3",
     "@angular/forms": "~8.0.3",
-<<<<<<< HEAD
     "@angular/material": "^8.2.3",
-=======
->>>>>>> 851ba70e3f3c716730e32e1c54b5e856e700d73a
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
