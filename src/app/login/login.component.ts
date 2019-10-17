@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   }
   get f() {return this.loginForm.controls}
 
-  onSubmit(customerData) {
+  onSubmit() {
+    console.log("in submit");
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -41,9 +42,11 @@ export class LoginComponent implements OnInit {
       data=>{
         console.log("Success")
         console.log(data)
-        this.spinner.hide();      
+        this.spinner.hide(); 
+               
           this.result=data;  
           localStorage.clear();
+          localStorage.setItem('username',this.f.username.value)
           localStorage.setItem('usertoken',"true");
           this.router.navigate(['../home/']);      
       },

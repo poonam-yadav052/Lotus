@@ -20,14 +20,12 @@
                  <!-- Horizontal Form -->
                  
                  <div class="box">
-                    <div class="box-header">
-                       <h3 class="box-title">View Reports</h3>
-                    </div>
+                  
                     <!-- /.box-header -->
                     <div class="box-body">
                        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                           <div class="row">
-                             <div class="col-sm-6">
+                             <div class="col-sm-4">
                                 <div class="dataTables_length" id="example1_length">
                                    <label>
                                       Show 
@@ -41,9 +39,12 @@
                                    </label>
                                 </div>
                              </div>
-                             <div class="col-sm-6">
+                             <div class="col-sm-4">
                                 <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
                              </div>
+                             <div class="col-sm-4">
+                              <button type="button" (click)="sendmail()" class="btn btn-primary mb-2">Mail Advise Note</button>
+                           </div>
                           </div>
                           <div class="row">
                              <div class="col-sm-12 table-responsive">
@@ -58,6 +59,7 @@
                                          <th class="sorting" tabindex="0"  style="width: 156px;">Bank name</th>
                                          <th class="sorting" tabindex="0"  style="width: 156px;">Cheque/utr no.</th>
                                          <th class="sorting" tabindex="0"  style="width: 156px;">Advice note Mail Send</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">Action</th>
                                       </tr>
                                    </thead>
                                    <tbody>
@@ -70,6 +72,7 @@
                                          <td>{{row.VendorBankName == 'NULL' ? '':row.VendorBankName}}</td>
                                          <td>{{row.ChequeUTRNo == 'NULL' ? '':row.ChequeUTRNo}}</td>
                                          <td>{{row.MailSendFlag == 'NULL' ? '':row.MailSendFlag}}</td>
+                                         <td><input type="checkbox" name="sendnote"  (change)="checkboxaction($event,row.PaymentAdviceNoteHeaderID)" id="sendnote{{row.PaymentAdviceNoteHeaderID}}"/></td>
                                       </tr>
                                    </tbody>
                                 </table>
@@ -88,7 +91,10 @@
                        </div>
                     </div>
                     <!-- /.box-body -->
-                 </div>
+                 
+                  
+                  </div>
+                  
                  <!-- /.box -->
               </div>
               <!--/.col (right) -->

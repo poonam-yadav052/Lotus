@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-viewhistory',
@@ -11,15 +12,29 @@ import { UploadFileService } from 'src/app/upload-file.service';
 export class ViewhistoryComponent implements OnInit {
   advisnotearr:PaymentAdviceNote[]=[]
   itemsPerPage=10
-  constructor(private spinner:NgxSpinnerService,private fileuploadservice:UploadFileService) { }
+  sendnote:any;
+  form: FormGroup;
+  chkData = [];
+  constructor(private spinner:NgxSpinnerService,private service:UploadFileService,private formBuilder: FormBuilder) {
+    /*this.form = this.formBuilder.group({
+      sendnote: []
+    });*/
+   }
 
   ngOnInit() {
     this.getUploadedData()
   }
 
+  checkboxaction(event,ref){
+    console.log(event)
+   this.chkData.push(ref)
+  }
+
+  
+
   getUploadedData(){
     this.spinner.show();
-    this.fileuploadservice.getPaymentAdvisNoteHeader().subscribe(
+    this.service.getPaymentAdvisNoteHeader().subscribe(
     data=>{
       this.advisnotearr=data;
       console.log(this.advisnotearr);
@@ -30,8 +45,25 @@ export class ViewhistoryComponent implements OnInit {
     })
   }
 
+  sendmail(){
+    this.spinner.show();
+    let ids=this.chkData;
+    console.log(ids);
+    this.service.sendmail(ids).subscribe(
+    data=>{
+      this.advisnotearr=data;
+      this.chkData=[];
+      this.spinner.hide();
+    },
+    error=>{
+      this.chkData=[];
+      this.spinner.hide();
+    })
+  }
+
 }
 class PaymentAdviceNote{
+  PaymentAdviceNoteHeaderID;
   VendorCode;
   VendorContanctName
   VendorEmail

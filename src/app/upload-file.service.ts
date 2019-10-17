@@ -11,8 +11,8 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-  url="https://localhost:44314/api/FileUpload/";
-  //url="https://krios.azurewebsites.net/api/FileUpload/";
+  //url="https://localhost:44314/api/FileUpload/";
+  url="https://krios.azurewebsites.net/api/FileUpload/";
   
   constructor(private http: HttpClient) { }
 
@@ -49,6 +49,14 @@ export class UploadFileService {
     formData.append('username', username);
     formData.append('password',password);
     return this.http.post(this.url+"Login",formData,httpOptions)
+  }
+
+  sendmail(ids:string[]):Observable<any>{
+    const formData: FormData = new FormData();
+    let idsarr=JSON.stringify(ids);
+    console.log(idsarr)
+    formData.append('ids', idsarr);
+    return this.http.post(this.url+"sendmail",formData,httpOptions)
   }
 
 

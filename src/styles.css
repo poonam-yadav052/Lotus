@@ -26,7 +26,7 @@ outline:none;
 /* login page css start from here */
 .login-logo, .register-logo{color:#fff;}
 .login-page{
-    background-image: url(./assets/img/16028.jpg);
+    background-image: url(assets/img/16028.jpg);
     background-attachment: fixed;
     background-position: top left;
     background-size:cover;

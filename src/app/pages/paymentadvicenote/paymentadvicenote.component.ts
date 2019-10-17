@@ -12,6 +12,10 @@ export class PaymentadvicenoteComponent implements OnInit {
   constructor(private service:UploadFileService,private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
+   
+  }
+
+  compare(){
     this.spinner.show();
     this.service.GeneratePaymentAdvanceNote().subscribe(data=>{
       this.paymentadvisorynotes=data;
