@@ -72,7 +72,11 @@
                                          <td>{{row.VendorBankName == 'NULL' ? '':row.VendorBankName}}</td>
                                          <td>{{row.ChequeUTRNo == 'NULL' ? '':row.ChequeUTRNo}}</td>
                                          <td>{{row.MailSendFlag == 'NULL' ? '':row.MailSendFlag}}</td>
-                                         <td><input type="checkbox" name="sendnote"  (change)="checkboxaction($event,row.PaymentAdviceNoteHeaderID)" id="sendnote{{row.PaymentAdviceNoteHeaderID}}"/></td>
+                                         <td>
+                                            <input type="checkbox" name="sendnote"  (change)="checkboxaction($event,row.PaymentAdviceNoteHeaderID)" id="sendnote{{row.PaymentAdviceNoteHeaderID}}"/>
+                                            &nbsp;<a *ngIf="row.MailSendFlag == 'Y'" target="_blank" href="{{url}}AdviceNotePdf/PaymentNote-{{row.VendorCode}}-{{row.PaymentAdviceNoteHeaderID}}.pdf">
+                                             <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                         </td>
                                       </tr>
                                    </tbody>
                                 </table>

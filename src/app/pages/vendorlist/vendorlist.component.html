@@ -1,0 +1,139 @@
+<div class="content-wrapper" style="min-height: 956px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+       <h1>
+            Vendor List
+       </h1>
+       <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Vendor List</li>
+       </ol>
+    </section>
+    <div class="row">
+       <div class="col-md-12">{{serviceresult}}</div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+       <div class="row">
+          <!-- right column -->
+          <div class="col-md-12">
+             <!-- Horizontal Form -->
+             
+             <div class="box">
+              
+                <!-- /.box-header -->
+                <div class="box-body">
+                   <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                      <div class="row">
+                         <div class="col-sm-4">
+                            <div class="dataTables_length" id="example1_length">
+                               <label>
+                                  Show 
+                                  <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1" class="form-control input-sm">
+                                     <option value="10">10</option>
+                                     <option value="25">25</option>
+                                     <option value="50">50</option>
+                                     <option value="100">100</option>
+                                  </select>
+                                  entries
+                               </label>
+                            </div>
+                         </div>
+                         <div class="col-sm-4">
+                            <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                         </div>
+                         
+                      </div>
+                      <div class="row">
+                         <div class="col-sm-12 table-responsive">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                               <thead>
+                                  <tr role="row">
+                                     <th class="sorting_asc" tabindex="0"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Vendor code</th>
+                                     <th class="sorting" tabindex="0"   style="width: 224px;">Vendor name</th>
+                                     <th class="sorting" tabindex="0"   style="width: 199px;">Email id</th>
+                                     <th class="sorting" tabindex="0"   style="width: 156px;">Bank a/c</th>
+                                     <th class="sorting" tabindex="0"  style="width: 156px;">IFSC code</th>
+                                     <th class="sorting" tabindex="0"  style="width: 156px;">Bank name</th>
+                                     <th class="sorting" tabindex="0"  style="width: 156px;">Alternate EmailID</th>
+                                     <th class="sorting" tabindex="0"  style="width: 156px;">Action</th>
+                                  </tr>
+                               </thead>
+                               <tbody>
+                                  <tr *ngFor="let row of vendorarr | paginate: { itemsPerPage: itemsPerPage, currentPage: p } ; let i = index" role="row" class="odd">
+                                     <td class="sorting_1">{{row.VendorCode  == 'NULL' ? '':row.VendorCode}}</td>
+                                     <td>{{row.VendorContanctName == 'NULL' || row.VendorContanctName == null ? row.VendorName:row.VendorContanctName}}</td>
+                                     <td>{{row.VendorEmail == 'NULL' ? '':row.VendorEmail}}</td>
+                                     <td>{{row.VendorBankAccount == 'NULL' ? '':row.VendorBankAccount}}</td>
+                                     <td>{{row.VendorBankIFSC == 'NULL' ? '':row.VendorBankIFSC}}</td>
+                                     <td>{{row.VendorBankName == 'NULL' ? '':row.VendorBankName}}</td>
+                                     <td>{{row.VendorAlternateEmailID== 'NULL' || row.VendorAlternateEmailID == 'undefined' ? '':row.VendorAlternateEmailID}}</td>
+                                     <td><i class="fa fa-edit" (click)="openModel(editvendor,i,row.VendorMasterID)" ></i></td>
+                                  </tr>
+                               </tbody>
+                            </table>
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing {{(itemsPerPage < vendorarr.length ? itemsPerPage : vendorarr.length)}} of {{vendorarr.length}} entries</div>
+                         </div>
+                         <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <!-- /.box-body -->
+             
+              
+              </div>
+              
+             <!-- /.box -->
+          </div>
+          <!--/.col (right) -->
+       </div>
+       <!-- /.row -->
+    </section>
+    <!-- /.content -->
+ </div>
+
+ <ng-template #editvendor>
+		<div class="modal-header">
+			<h4 class="modal-title pull-left">Edit</h4>
+			<button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+            <div class="form-group">
+                  <div class="checkbox checkbox-success">
+                      <label for="pestoccured" class="mb-0">Vendor Code</label> : 
+                      {{this.selectedvendor.VendorCode}}                        
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="checkbox checkbox-success">
+                      <label for="pestoccured" class="mb-0">Vendor Contanct Name</label> : 
+                      {{this.selectedvendor.VendorContanctName}}                        
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="checkbox checkbox-success">
+                      <label for="pestoccured" class="mb-0">Vendor Email</label> : 
+                      {{this.selectedvendor.VendorEmail}}                        
+                  </div>
+              </div>
+            <div class="form-group">
+                <div class="checkbox checkbox-success">
+                    <label for="pestoccured" class="mb-0">Alternate Mail ID</label>
+                    <input class="form-control" id="alternateemail" name="alternateemail" type="text"  [(ngModel)]="alternateemail">                        
+                </div>
+            </div>
+            <div class="form-group text-center">			  
+                <button type="submit" class="btn btn-success" (click)="submitvendorform()">Submit</button>
+            </div>
+		</div>
+	</ng-template>

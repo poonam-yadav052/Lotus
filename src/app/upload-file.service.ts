@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { map } from  'rxjs/operators';
 const httpOptions = {
-  headers: new HttpHeaders(  
-  )
+  headers: new HttpHeaders()
 };
 @Injectable({
   providedIn: 'root'
@@ -40,6 +39,10 @@ export class UploadFileService {
     return this.http.get(this.url+"GeneratePaymentAdvanceNote",httpOptions);
   }
 
+  getVendorList():Observable<any>{
+    return this.http.get(this.url+"GetVendorMaster",httpOptions);
+  }
+
   getPaymentAdvisNoteHeader():Observable<any>{
     return this.http.get(this.url+"getPaymentAdvisNoteHeader",httpOptions);
   }
@@ -57,6 +60,13 @@ export class UploadFileService {
     console.log(idsarr)
     formData.append('ids', idsarr);
     return this.http.post(this.url+"sendmail",formData,httpOptions)
+  }
+
+  saveVendorInfo(vendorid:number,mailid:string):Observable<any>{
+    const formData: FormData = new FormData();
+    formData.append('vendorid', vendorid.toString());
+    formData.append('mailid', mailid);
+    return this.http.post(this.url+"editVendor",formData,httpOptions)
   }
 
 

@@ -11,6 +11,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { ShellComponent } from './shell/shell.component';
 import { LoginComponent } from './login/login.component';
+import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'paymentadvicenote', component: PaymentadvicenoteComponent},
   {path: 'paymentreconsilation', component:PaymentreconsilationComponent},
   {path: 'viewhistory', component: ViewhistoryComponent},
+  {path:'vendorlist',component:VendorlistComponent}
   ]
 }
 ];
@@ -33,4 +35,12 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, HeaderComponent,FooterComponent,SidebarComponent,ShellComponent, HomeComponent, UdvdataComponent, DuplicatepaymentComponent, PaymentadvicenoteComponent, PaymentreconsilationComponent,ViewhistoryComponent ]
+export const routingComponents = [LoginComponent, 
+  HeaderComponent,
+  FooterComponent,
+  SidebarComponent,
+  ShellComponent, 
+  HomeComponent, 
+  UdvdataComponent, DuplicatepaymentComponent, 
+  PaymentadvicenoteComponent, PaymentreconsilationComponent,
+  ViewhistoryComponent,VendorlistComponent ]
