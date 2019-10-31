@@ -15,8 +15,8 @@ export class ViewhistoryComponent implements OnInit {
   sendnote:any;
   form: FormGroup;
   chkData = [];
-  //url="https://localhost:44314/";
-  url="https://krios.azurewebsites.net/";
+  url="https://localhost:44314/";
+  //url="https://krios.azurewebsites.net/";
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,private formBuilder: FormBuilder) {
     /*this.form = this.formBuilder.group({
       sendnote: []
