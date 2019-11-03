@@ -10,8 +10,10 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-  url="https://localhost:44314/api/FileUpload/";
-  //url="https://krios.azurewebsites.net/api/FileUpload/";
+  //url="https://localhost:44314/api/FileUpload/";
+  url="https://krios.azurewebsites.net/api/FileUpload/";
+  //fileurl="https://localhost:44314/"
+  fileurl="https://krios.azurewebsites.net/"
   
   constructor(private http: HttpClient) { }
 
@@ -47,10 +49,19 @@ export class UploadFileService {
     return this.http.get(this.url+"getPaymentAdvisNoteHeader",httpOptions);
   }
 
+  getDuplicatePayment():Observable<any>{
+    return this.http.get(this.url+"GetDuplicatePaymentHistory",httpOptions);
+  }
+
+  GetBankPaymentsAdviceNotePending():Observable<any>{
+    return this.http.get(this.url+"GetBankPaymentsAdviceNotePending",httpOptions);
+  }
+
   Login(username:string,password:string):Observable<any>{
     const formData: FormData = new FormData();
     formData.append('username', username);
-    formData.append('password',password);
+    formData.append('password',btoa(password));
+    console.log(btoa(password))
     return this.http.post(this.url+"Login",formData,httpOptions)
   }
 

@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ExcelService } from 'src/app/excel.service';
 
 @Component({
   selector: 'app-viewhistory',
@@ -15,12 +16,14 @@ export class ViewhistoryComponent implements OnInit {
   sendnote:any;
   form: FormGroup;
   chkData = [];
-  url="https://localhost:44314/";
-  //url="https://krios.azurewebsites.net/";
-  constructor(private spinner:NgxSpinnerService,private service:UploadFileService,private formBuilder: FormBuilder) {
+  url=""
+  constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
+    private formBuilder: FormBuilder,
+    private excelService:ExcelService) {
     /*this.form = this.formBuilder.group({
       sendnote: []
     });*/
+    this.url=service.fileurl
    }
 
   ngOnInit() {
@@ -32,7 +35,9 @@ export class ViewhistoryComponent implements OnInit {
    this.chkData.push(ref)
   }
 
-  
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.advisnotearr, 'Payment Advisory Note');
+  }
 
   getUploadedData(){
     this.spinner.show();
@@ -53,7 +58,15 @@ export class ViewhistoryComponent implements OnInit {
     console.log(ids);
     this.service.sendmail(ids).subscribe(
     data=>{
-      this.advisnotearr=data;
+      //this.advisnotearr=data;
+      this. getUploadedData();
+      for(var index in ids)
+      {
+        console.log(index)
+      //let index1=this.advisnotearr.findIndex(o=>o.PaymentAdviceNoteHeaderID==index);
+      //console.log(index1);
+      //this.advisnotearr[index1].MailSendFlag='Y';
+      }
       this.chkData=[];
       this.spinner.hide();
     },
@@ -67,6 +80,7 @@ export class ViewhistoryComponent implements OnInit {
 class PaymentAdviceNote{
   PaymentAdviceNoteHeaderID;
   VendorCode;
+  VendorName
   VendorContanctName
   VendorEmail
   VendorAccount

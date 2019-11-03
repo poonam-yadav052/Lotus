@@ -14,6 +14,7 @@ export class UdvdataComponent implements OnInit {
   submitted = false;
   filetypeerror=false;
   uploadfileresult="";
+  exceltemplate:String="";
   modalref:BsModalRef;
   itemsPerPage=10
   fileToUpload: File = null;
@@ -34,6 +35,29 @@ export class UdvdataComponent implements OnInit {
 
   ngOnInit() {
     this.getUploadedData();
+  }
+
+  getExcelTemplate(value){
+    console.log(value)
+    this.exceltemplate=this.fileuploadservice.fileurl+"ExcelTemplate/";
+    if(value == "SAP"){
+      this.exceltemplate=this.exceltemplate+"Payment_detail_SAP.xlsx";
+    }
+    else if(value == "BPCS") {
+      this.exceltemplate=this.exceltemplate+"Payment_detail_BPCS.xlsx";
+    }
+    else if(value == "Bank") {
+      this.exceltemplate=this.exceltemplate+"Bank Payment File.xlsx";
+    }
+    else if(value == "SAP_Vendor") {
+      this.exceltemplate=this.exceltemplate+"SAP_vendor.xlsx";
+    }
+    else if(value == "BPCS_Vendor") {
+      this.exceltemplate=this.exceltemplate+"Vendor_BPCS.xlsx";
+    }
+    else {
+      this.exceltemplate=""
+    }
   }
 
   getUploadedData(){

@@ -1,48 +1,113 @@
 <div class="content-wrapper" style="min-height: 956px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-      Payment Advice Note
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Payment Advice Note</li>
-      </ol>
+       <h1>
+            Pending Advisory Note
+       </h1>
+       <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Pending Advisory Note</li>
+       </ol>
     </section>
-
+    <div class="row">
+       <div class="col-md-12">{{uploadfileresult}}</div>
+    </div>
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <!-- right column -->
-        <div class="col-md-12">
-          <!-- Horizontal Form -->
-          <div class="box">
-            <!-- form start -->
-           
-              <div class="box-body">
-                
-                <div class="row">
-                  <div class="form-group col-xs-12">
-                     <button (click)="compare()" type="button" class="btn btn-primary mb-2">Compare and generate advise note</button>
-                  </div>
-               </div>
-                
-              </div>
-              <!-- /.box-body -->
+       <div class="row">
+          <!-- right column -->
+          <div class="col-md-12">
+             <!-- Horizontal Form -->
+             
+             <div class="box">
               
-            
+                <!-- /.box-header -->
+                <div class="box-body">
+                   <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                      <div class="row">
+                         <div class="col-sm-4">
+                            <div class="dataTables_length" id="example1_length">
+                               <label>
+                                  Show 
+                                  <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1" class="form-control input-sm">
+                                     <option value="10">10</option>
+                                     <option value="25">25</option>
+                                     <option value="50">50</option>
+                                     <option value="100">100</option>
+                                  </select>
+                                  entries
+                               </label>
+                            </div>
+                         </div>
+                         <div class="col-sm-4">
+                            <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                         </div>
+                         <div class="col-sm-4">
+                          
+                          <button (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"></i></button>
+                       </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-sm-12 table-responsive">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                               <thead>
+                                  <tr role="row">
+                                         
+                                     <th class="sorting_asc" tabindex="0"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Company Account No</th>
+                                     <th class="sorting" tabindex="0">Book Date</th>
+                                     <th class="sorting" tabindex="0" >Value Date</th>
+                                     <th class="sorting" tabindex="0" >Transaction Type</th>
+                                     <th class="sorting" tabindex="0" >Debit Credit Indicator</th>
+                                     <th class="sorting" tabindex="0" >Settled Amount</th>
+                                     <th class="sorting" tabindex="0">Customer Reference</th>
+                                     <th class="sorting" tabindex="0" >Bank Reference</th>
+                                     <th class="sorting" tabindex="0" >Pay Notice Generated</th>
+                                     <th class="sorting" tabindex="0" >Vendor Name</th>
+                                     <th class="sorting" tabindex="0">Cheque UTRNo</th>
+                                     <th class="sorting" tabindex="0">All Transaction Details</th>
+                                  </tr>
+                               </thead>
+                               <tbody>
+                                  <tr *ngFor="let row of arr | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
+                                     <td class="sorting_1">{{row.CompanyAccountNo  == 'NULL' ? '':row.CompanyAccountNo}}</td>
+                                     <td>{{row.BookDate == 'NULL' ? '':row.BookDate}}</td>
+                                     <td>{{row.ValueDate == 'NULL' ? '':row.ValueDate}}</td>
+                                     <td>{{row.TransactionType == 'NULL' ? '':row.TransactionType}}</td>
+                                     <td>{{row.DebitCreditIndicator == 'NULL' ? '':row.DebitCreditIndicator}}</td>
+                                     <td>{{row.SettledAmount == 'NULL' ? '':row.SettledAmount}}</td>
+                                     <td>{{row.CustomerReference == 'NULL' ? '':row.CustomerReference}}</td>
+                                     <td>{{row.BankReference == 'NULL' ? '':row.BankReference}}</td>
+                                     <td>{{row.PayNoticeGenerated == 'NULL' ? '':row.PayNoticeGenerated}}</td>
+                                     <td>{{row.VendorName == 'NULL' ? '':row.VendorName}}</td>
+                                     <td>{{row.ChequeUTRNo == 'NULL' ? '':row.ChequeUTRNo}}</td>
+                                     <td>{{row.AllTransactionDetails == 'NULL' ? '':row.AllTransactionDetails}}</td>
+                                  </tr>
+                               </tbody>
+                            </table>
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing {{(itemsPerPage < arr.length ? itemsPerPage : arr.length)}} of {{arr.length}} entries</div>
+                         </div>
+                         <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <!-- /.box-body -->
+             
+              
+              </div>
+              
+             <!-- /.box -->
           </div>
-          <!-- /.box -->
-          
-      
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
+          <!--/.col (right) -->
+       </div>
+       <!-- /.row -->
     </section>
     <!-- /.content -->
-  </div>
-
-
-
+ </div>

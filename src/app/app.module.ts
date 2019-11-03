@@ -10,7 +10,6 @@ import {BsDatepickerModule,BsModalRef,ModalModule,CarouselModule} from 'ngx-boot
 import { UploadFileService } from './upload-file.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ShellComponent } from './shell/shell.component';
-import { MatButtonModule } from '@angular/material/button';
 import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
     ModalModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule, NgxPaginationModule,MatButtonModule
+    NgxSpinnerModule, NgxPaginationModule
   ],
   providers: [UploadFileService,BsModalRef],
   bootstrap: [AppComponent]

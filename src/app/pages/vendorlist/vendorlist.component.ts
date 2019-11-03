@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ExcelService } from 'src/app/excel.service';
 @Component({
   selector: 'app-vendorlist',
   templateUrl: './vendorlist.component.html',
@@ -20,7 +21,7 @@ export class VendorlistComponent implements OnInit {
   alternateemail:string;
   vendorid:number;
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
-    private formBuilder: FormBuilder,private modalservice:BsModalService) {
+    private formBuilder: FormBuilder,private modalservice:BsModalService,private excelService:ExcelService) {
     /*this.form = this.formBuilder.group({
       sendnote: []
     });*/
@@ -28,6 +29,10 @@ export class VendorlistComponent implements OnInit {
 
   ngOnInit() {
     this.getUploadedData()
+  }
+
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.vendorarr, 'Vendor List');
   }
 
   openModel(modalpoupid: TemplateRef<any>,type:number,vendorid:number) { 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UploadFileService } from 'src/app/upload-file.service';
+import { ExcelService } from 'src/app/excel.service';
 
 @Component({
   selector: 'app-paymentadvicenote',
@@ -8,26 +9,44 @@ import { UploadFileService } from 'src/app/upload-file.service';
   styleUrls: ['./paymentadvicenote.component.css']
 })
 export class PaymentadvicenoteComponent implements OnInit {
-  paymentadvisorynotes:PaymentAdviceNote[]=[]
-  constructor(private service:UploadFileService,private spinner:NgxSpinnerService) { }
+  arr:PaymentAdviceNotePending[]=[]
+  itemsPerPage=10
+  constructor(private service:UploadFileService,private spinner:NgxSpinnerService
+    ,private excelService:ExcelService) { }
 
   ngOnInit() {
-   
+    this.getData()
   }
 
-  compare(){
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.arr, 'Pending Advisory Notes');
+  }
+
+  getData(){
     this.spinner.show();
-    this.service.GeneratePaymentAdvanceNote().subscribe(data=>{
-      this.paymentadvisorynotes=data;
-      console.log(this.paymentadvisorynotes);
+    this.service.GetBankPaymentsAdviceNotePending().subscribe(
+    data=>{
+      this.arr=data;
+      console.log(this.arr);
       this.spinner.hide();
     },
     error=>{
       this.spinner.hide();
-    });
+    })
   }
 
 }
-class PaymentAdviceNote{
-  
+class PaymentAdviceNotePending{
+  CompanyAccountNo;
+  BookDate;
+  ValueDate;
+  TransactionType;
+  DebitCreditIndicator;
+  SettledAmount;
+  CustomerReference;
+  BankReference;
+  PayNoticeGenerated;
+  VendorName;
+  ChequeUTRNo;
+  AllTransactionDetails;
 }

@@ -20,12 +20,13 @@
                <!-- Horizontal Form -->
                <div class="box">
                   <div class="box-body">
+                     
                      <!-- form start -->
                      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="">
                      <div class="row">
                         <div class="form-group col-xs-6">
                            <label for="uploadfiletype">File type</label>
-                           <select class="form-control"  formControlName="uploadfiletype" [ngClass]="{ 'is-invalid': submitted && f.uploadfiletype.errors }">
+                           <select class="form-control" (change)="getExcelTemplate(f.uploadfiletype.value)"  formControlName="uploadfiletype" [ngClass]="{ 'is-invalid': submitted && f.uploadfiletype.errors }">
                               <option value="">--select type--</option>
                               <option value="SAP">SAP</option>
                               <option value="BPCS">BPCS</option>
@@ -36,6 +37,8 @@
                            <div *ngIf="submitted && f.uploadfiletype.errors" class="invalid-feedback">
                               <div *ngIf="f.uploadfiletype.errors.required">Please select type</div>
                            </div>
+                           <a *ngIf="exceltemplate != ''" target="_blank" href="{{exceltemplate}}">
+                           Download Template</a>
                         </div>
                         <div class="form-group col-xs-6">
                            <label for="fileupload">File</label>

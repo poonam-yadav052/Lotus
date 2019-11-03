@@ -43,12 +43,17 @@ export class LoginComponent implements OnInit {
         console.log("Success")
         console.log(data)
         this.spinner.hide(); 
-               
+          if(data == "Login Fail")     
+          {
+
+          }
+          else{
           this.result=data;  
           localStorage.clear();
           localStorage.setItem('username',this.f.username.value)
           localStorage.setItem('usertoken',"true");
-          this.router.navigate(['../home/']);      
+          this.router.navigate(['../home/']);     
+          } 
       },
       error=>{
         this.spinner.hide();

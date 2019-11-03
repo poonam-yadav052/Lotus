@@ -6,6 +6,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <h4 class="login-box-msg">Sign In</h4>
+      <div *ngIf="result != ''">{{result}}</div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="">
         <div class="form-group has-feedback">
            <input   formControlName="username" type="text" placeholder="Username" class="form-control" name="username" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
