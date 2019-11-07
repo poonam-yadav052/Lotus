@@ -10,12 +10,16 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-  url="https://localhost:44314/api/FileUpload/";
-  //url="https://krios.azurewebsites.net/api/FileUpload/";
-  fileurl="https://localhost:44314/"
-  //fileurl="https://krios.azurewebsites.net/"
+  env='prod';
+  baseurl=""
+  url
+  fileurl="https://krios.azurewebsites.net/"
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.baseurl=this.env=="dev"?"https://localhost:44314/":"https://krios.azurewebsites.net/";
+    this.url=this.baseurl+"api/FileUpload/";
+    this.fileurl=this.baseurl+"";
+  }
 
   uploadfile(filetype,fileToUpload):Observable<any>{
     const formData: FormData = new FormData();
