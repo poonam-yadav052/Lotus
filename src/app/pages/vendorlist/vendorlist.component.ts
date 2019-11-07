@@ -79,6 +79,7 @@ export class VendorlistComponent implements OnInit {
 class Vendor{
   VendorMasterID;
   VendorCode;
+  CompanyCode;
   VendorName
   VendorEmail
   VendorAlternateEmailID

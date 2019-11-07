@@ -10,10 +10,10 @@ const httpOptions = {
 })
 export class UploadFileService {
 
-  //url="https://localhost:44314/api/FileUpload/";
-  url="https://krios.azurewebsites.net/api/FileUpload/";
-  //fileurl="https://localhost:44314/"
-  fileurl="https://krios.azurewebsites.net/"
+  url="https://localhost:44314/api/FileUpload/";
+  //url="https://krios.azurewebsites.net/api/FileUpload/";
+  fileurl="https://localhost:44314/"
+  //fileurl="https://krios.azurewebsites.net/"
   
   constructor(private http: HttpClient) { }
 

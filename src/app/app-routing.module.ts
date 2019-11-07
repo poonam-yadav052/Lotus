@@ -12,6 +12,7 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { ShellComponent } from './shell/shell.component';
 import { LoginComponent } from './login/login.component';
 import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
+import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'paymentadvicenote', component: PaymentadvicenoteComponent},
   {path: 'paymentreconsilation', component:PaymentreconsilationComponent},
   {path: 'viewhistory', component: ViewhistoryComponent},
+  {path:'paymentadvicenotepending', component: PaymentadvicependingComponent},
   {path:'vendorlist',component:VendorlistComponent}
   ]
 }
@@ -43,4 +45,4 @@ export const routingComponents = [LoginComponent,
   HomeComponent, 
   UdvdataComponent, DuplicatepaymentComponent, 
   PaymentadvicenoteComponent, PaymentreconsilationComponent,
-  ViewhistoryComponent,VendorlistComponent ]
+  ViewhistoryComponent,VendorlistComponent,PaymentadvicependingComponent ]

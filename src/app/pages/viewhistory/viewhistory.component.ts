@@ -58,8 +58,7 @@ export class ViewhistoryComponent implements OnInit {
     console.log(ids);
     this.service.sendmail(ids).subscribe(
     data=>{
-      //this.advisnotearr=data;
-      this. getUploadedData();
+      //this.advisnotearr=data; 
       for(var index in ids)
       {
         console.log(index)
@@ -68,6 +67,7 @@ export class ViewhistoryComponent implements OnInit {
       //this.advisnotearr[index1].MailSendFlag='Y';
       }
       this.chkData=[];
+      this.getUploadedData();
       this.spinner.hide();
     },
     error=>{

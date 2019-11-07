@@ -11,13 +11,15 @@ import { UploadFileService } from './upload-file.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ShellComponent } from './shell/shell.component';
 import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
+import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     PaymentreconsilationComponent,
     ShellComponent,
-    VendorlistComponent
+    VendorlistComponent,
+    PaymentadvicependingComponent
   ],
   imports: [
     BrowserModule,
