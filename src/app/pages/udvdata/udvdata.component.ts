@@ -3,7 +3,8 @@ import { FormBuilder,FormGroup,FormsModule,ReactiveFormsModule,FormControl,Valid
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
-
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @Component({
   selector: 'app-udvdata',
   templateUrl: './udvdata.component.html',
@@ -19,6 +20,7 @@ export class UdvdataComponent implements OnInit {
   itemsPerPage=10
   fileToUpload: File = null;
   uploadeddata:FileUploaded[]=[];
+  searchText;
   filetypesallowed:string[]=["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                               "application/vnd.ms-excel"]
   constructor(private formBuilder: FormBuilder,

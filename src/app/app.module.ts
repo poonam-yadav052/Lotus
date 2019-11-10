@@ -12,6 +12,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ShellComponent } from './shell/shell.component';
 import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
 import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,7 @@ import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paym
     ModalModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule, NgxPaginationModule
+    NgxSpinnerModule, NgxPaginationModule,Ng2SearchPipeModule
   ],
   providers: [UploadFileService,BsModalRef],
   bootstrap: [AppComponent]

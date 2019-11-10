@@ -13,6 +13,7 @@ export class DuplicatepaymentComponent implements OnInit {
   itemsPerPage=10
   sendnote:any;
   chkData = [];
+  searchText;
   url=""
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
     private excelService:ExcelService) {

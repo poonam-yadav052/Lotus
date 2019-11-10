@@ -40,7 +40,8 @@
                                 </div>
                              </div>
                              <div class="col-sm-4">
-                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search"></label></div>
                              </div>
                              <div class="col-sm-4">
                               <button type="button" (click)="sendmail()" class="btn btn-primary mb-2">Mail Advise Note</button>
@@ -64,7 +65,7 @@
                                       </tr>
                                    </thead>
                                    <tbody>
-                                      <tr *ngFor="let row of advisnotearr | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
+                                      <tr *ngFor="let row of advisnotearr | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
                                          <td class="sorting_1">{{row.VendorCode  == 'NULL' ? '':row.VendorCode}}</td>
                                          <td>{{row.VendorName == 'NULL' ? '':row.VendorName}}</td>
                                          <td>{{row.VendorEmail == 'NULL' ? '':row.VendorEmail}}</td>

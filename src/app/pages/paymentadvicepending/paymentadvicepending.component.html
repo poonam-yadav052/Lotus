@@ -40,7 +40,9 @@
                                 </div>
                              </div>
                              <div class="col-sm-4">
-                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+                                 </label></div>
                              </div>
                              <div class="col-sm-4">
                               
@@ -68,7 +70,7 @@
                                       </tr>
                                    </thead>
                                    <tbody>
-                                      <tr *ngFor="let row of arr | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
+                                      <tr *ngFor="let row of arr | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
                                          <td class="sorting_1">{{row.CompanyAccountNo  == 'NULL' ? '':row.CompanyAccountNo}}</td>
                                          <td>{{row.BookDate == 'NULL' ? '':row.BookDate}}</td>
                                          <td>{{row.ValueDate == 'NULL' ? '':row.ValueDate}}</td>
