@@ -10,6 +10,7 @@ import { ExcelService } from 'src/app/excel.service';
 export class PaymentadvicependingComponent implements OnInit {
   arr:PaymentAdviceNotePending[]=[]
   itemsPerPage=10
+  searchText;
   constructor(private service:UploadFileService,private spinner:NgxSpinnerService
     ,private excelService:ExcelService) { }
 

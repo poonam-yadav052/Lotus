@@ -20,6 +20,7 @@ export class VendorlistComponent implements OnInit {
   modalref: BsModalRef;
   alternateemail:string;
   vendorid:number;
+  searchText;
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
     private formBuilder: FormBuilder,private modalservice:BsModalService,private excelService:ExcelService) {
     /*this.form = this.formBuilder.group({

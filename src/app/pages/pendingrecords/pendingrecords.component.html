@@ -2,11 +2,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <h1>
-                Pending Advisory Note
+                SAP/BPCS Pending
            </h1>
            <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li class="active">Pending Advisory Note</li>
+              <li class="active">SAP/BPCS Pending</li>
            </ol>
         </section>
         <div class="row">
@@ -28,7 +28,6 @@
                              <div class="col-sm-4">
                                 <div class="dataTables_length" id="example1_length">
                                    <label>
-                                      Show entries
                                       Show 
                                       <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1" class="form-control input-sm">
                                          <option value="10">10</option>
@@ -36,22 +35,11 @@
                                          <option value="50">50</option>
                                          <option value="100">100</option>
                                       </select>
-                                      
                                       entries
                                    </label>
                                 </div>
                              </div>
                              <div class="col-sm-4">
-                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
-                             </div>
-                             <div class="col-xs-12 col-md-4 ">
-                                 <div class=" mb-sm-10 pull-md-right pull-md-right pull-sm-none">
-                              <button class="btn btn-small btn-success " (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"></i></button>
-                              </div>
-                           </div>
-                          </div>
-                          <div class="row" style="margin: 0;">
-                             <div class="table-responsive">
                                 <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
                                     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
                                  </label></div>
@@ -67,35 +55,25 @@
                                    <thead>
                                       <tr role="row">
                                              
-                                         <th class="sorting_asc" tabindex="0"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Company Account No</th>
-                                         <th class="sorting" tabindex="0">Book Date</th>
-                                         <th class="sorting" tabindex="0" >Value Date</th>
-                                         <th class="sorting" tabindex="0" >Transaction Type</th>
-                                         <th class="sorting" tabindex="0" >Debit Credit Indicator</th>
-                                         <th class="sorting" tabindex="0" >Settled Amount</th>
-                                         <th class="sorting" tabindex="0">Customer Reference</th>
-                                         <th class="sorting" tabindex="0" >Bank Reference</th>
-                                         <th class="sorting" tabindex="0" >Pay Notice Generated</th>
-                                         <th class="sorting" tabindex="0" >Vendor Name</th>
-                                         <th class="sorting" tabindex="0">Cheque UTRNo</th>
-                                         <th class="sorting" tabindex="0">All Transaction Details</th>
+                                         <th class="sorting_asc" tabindex="0"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Vendor Code</th>
+                                         <th class="sorting" tabindex="0">Vendor Name</th>
+                                         <th class="sorting" tabindex="0" >Record Source</th>
+                                         <th class="sorting" tabindex="0" >Payment reference number</th>
+                                         <th class="sorting" tabindex="0" >Payment booking number</th>
+                                         <th class="sorting" tabindex="0" >Company code</th>
+                                         <th class="sorting" tabindex="0">Payment Date</th>
                                       </tr>
                                    </thead>
                                    <tbody>
-                                      <tr *ngFor="let row of arr | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
                                       <tr *ngFor="let row of arr | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
-                                         <td class="sorting_1">{{row.CompanyAccountNo  == 'NULL' ? '':row.CompanyAccountNo}}</td>
-                                         <td>{{row.BookDate == 'NULL' ? '':row.BookDate}}</td>
-                                         <td>{{row.ValueDate == 'NULL' ? '':row.ValueDate}}</td>
-                                         <td>{{row.TransactionType == 'NULL' ? '':row.TransactionType}}</td>
-                                         <td>{{row.DebitCreditIndicator == 'NULL' ? '':row.DebitCreditIndicator}}</td>
-                                         <td>{{row.SettledAmount == 'NULL' ? '':row.SettledAmount}}</td>
-                                         <td>{{row.CustomerReference == 'NULL' ? '':row.CustomerReference}}</td>
-                                         <td>{{row.BankReference == 'NULL' ? '':row.BankReference}}</td>
-                                         <td>{{row.PayNoticeGenerated == 'NULL' ? '':row.PayNoticeGenerated}}</td>
-                                         <td>{{row.VendorName == 'NULL' ? '':row.VendorName}}</td>
-                                         <td>{{row.ChequeUTRNo == 'NULL' ? '':row.ChequeUTRNo}}</td>
-                                         <td>{{row.AllTransactionDetails == 'NULL' ? '':row.AllTransactionDetails}}</td>
+                                        <td class="sorting_1">{{row.VendorCode  == 'NULL' ? '':row.VendorCode}}</td> 
+                                         <td>{{row.VendorName  == 'NULL' ? '':row.VendorName}}</td>
+                                         <td>{{row.RecordSource == 'NULL' ? '':row.RecordSource}}</td>
+                                         <td>{{row.PaymentRefNumber == 'NULL' ? '':row.PaymentRefNumber}}</td>
+                                         <td>{{row.PaymentBookingNumber == 'NULL' ? '':row.PaymentBookingNumber}}</td>
+                                         <td>{{row.CompanyCode == 'NULL' ? '':row.CompanyCode}}</td>
+                                         <td>{{row.PaymentDate == 'NULL' ? '':row.PaymentDate}}</td>
+                                        
                                       </tr>
                                    </tbody>
                                 </table>

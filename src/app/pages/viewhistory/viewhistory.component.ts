@@ -16,6 +16,7 @@ export class ViewhistoryComponent implements OnInit {
   sendnote:any;
   form: FormGroup;
   chkData = [];
+  searchText;
   url=""
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
     private formBuilder: FormBuilder,

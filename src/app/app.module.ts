@@ -13,6 +13,11 @@ import { ShellComponent } from './shell/shell.component';
 import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
 import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PendingrecordsComponent } from './pages/pendingrecords/pendingrecords.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PaymentreconsilationComponent,
     ShellComponent,
     VendorlistComponent,
-    PaymentadvicependingComponent
+    PaymentadvicependingComponent,
+    PendingrecordsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModalModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule, NgxPaginationModule, BrowserAnimationsModule
+    NgxSpinnerModule, NgxPaginationModule,Ng2SearchPipeModule
   ],
   providers: [UploadFileService,BsModalRef],
   bootstrap: [AppComponent]

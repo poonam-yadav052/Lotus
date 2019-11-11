@@ -79,31 +79,33 @@
                                        <option value="50">50</option>
                                        <option value="100">100</option>
                                     </select>
-                                    
+                                    entries
                                  </label>
                               </div>
                            </div>
-                           <div class="col-xs-6">
-                              <div id="example1_filter" class="dataTables_filter pull-right"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                           <div class="col-sm-6">  
+                              <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+                                 <!--<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1">--></label></div>
                            </div>
                         </div>
-                        <div class="row" style="margin:0px;">
-                           <div class="table-responsive">
+                        <div class="row">
+                           <div class="col-sm-12 table-responsive">
                               <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                  <thead>
                                     <tr role="row">
-                                       <th class="sorting_asc" style="width:80px;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Batch ID</th>
-                                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >File Name</th>
-                                       <th class="sorting " style="width:110px ;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >File Type</th>
-                                       <th class="sorting "style="width:180px ;" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Uploaded Date</th>
+                                       <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Batch ID</th>
+                                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">File Name</th>
+                                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">File Type</th>
+                                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 156px;">Uploaded Date</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    <tr *ngFor="let row of uploadeddata | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
-                                       <td class="sorting_1 ">{{row.UploadedFilesID}}</td>
+                                    <tr *ngFor="let row of uploadeddata | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
+                                       <td class="sorting_1">{{row.UploadedFilesID}}</td>
                                        <td>{{row.FileName}}</td>
-                                       <td >{{row.FileType}}</td>
-                                       <td class="">{{row.UploadedDate}}</td>
+                                       <td>{{row.FileType}}</td>
+                                       <td>{{row.UploadedDate}}</td>
                                     </tr>
                                  </tbody>
                               </table>

@@ -3,6 +3,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/* You can add global styles to this file, and also import other style files */
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td{border:1px solid #ccc;}
 .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
     border-top: 1px solid #ccc;
@@ -45,6 +46,12 @@ input[type=file].form-control {padding: 0;border: 0;}
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     white-space: nowrap;
 }
+.btn {border-radius: 0;box-shadow: none;border: 0;}
+.table{margin-bottom:10px;}
+
+
+
+
 
 /* login page css start from here */
 .login-logo, .register-logo{color:#fff;}
@@ -134,4 +141,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @media(max-width:767px){
     
 
+}
+
+
+@media(max-width:768px){
+    .login-box {
+        margin: 10% auto 10% auto;
+        width: 280px;
+    }
+    
 }

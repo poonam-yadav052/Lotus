@@ -65,7 +65,7 @@
                                   </tr>
                                </thead>
                                <tbody>
-                                  <tr *ngFor="let row of vendorarr | paginate: { itemsPerPage: itemsPerPage, currentPage: p } ; let i = index" role="row" class="odd">
+                                  <tr *ngFor="let row of vendorarr | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p } ; let i = index" role="row" class="odd">
                                      <td class="sorting_1">{{row.VendorCode  == 'NULL' ? '':row.VendorCode}}</td>
                                      <td>{{row.VendorContanctName == 'NULL' || row.VendorContanctName == null ? row.VendorName:row.VendorContanctName}}</td>
                                      <td>{{row.CompanyCode == 'NULL' ? '':row.CompanyCode}}</td>
