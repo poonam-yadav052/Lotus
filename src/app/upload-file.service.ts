@@ -61,6 +61,10 @@ export class UploadFileService {
     return this.http.get(this.url+"GetBankPaymentsAdviceNotePending",httpOptions);
   }
 
+  GetSAPBPCSAdviceNotePending():Observable<any>{
+    return this.http.get(this.url+"GetSAPBPCSAdviceNotePending",httpOptions);
+  }
+
   Login(username:string,password:string):Observable<any>{
     const formData: FormData = new FormData();
     formData.append('username', username);

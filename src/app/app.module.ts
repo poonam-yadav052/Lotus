@@ -14,6 +14,7 @@ import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
 import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PendingrecordsComponent } from './pages/pendingrecords/pendingrecords.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PaymentreconsilationComponent,
     ShellComponent,
     VendorlistComponent,
-    PaymentadvicependingComponent
+    PaymentadvicependingComponent,
+    PendingrecordsComponent
   ],
   imports: [
     BrowserModule,
