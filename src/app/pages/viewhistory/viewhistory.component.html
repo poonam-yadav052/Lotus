@@ -1,0 +1,114 @@
+<div class="content-wrapper" style="min-height: 956px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+           <h1>
+                View Reports
+           </h1>
+           <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+              <li class="active">View Reports</li>
+           </ol>
+        </section>
+        <div class="row">
+           <div class="col-md-12">{{uploadfileresult}}</div>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+           <div class="row">
+              <!-- right column -->
+              <div class="col-md-12">
+                 <!-- Horizontal Form -->
+                 
+                 <div class="box">
+                  
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                       <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                          <div class="row">
+                             <div class="col-xs-6 col-md-4">
+                                <div class="dataTables_length" id="example1_length">
+                                   <label>
+                                      Show entries 
+                                      <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1" class="form-control input-sm">
+                                         <option value="10">10</option>
+                                         <option value="25">25</option>
+                                         <option value="50">50</option>
+                                         <option value="100">100</option>
+                                      </select>
+                                     
+                                   </label>
+                                </div>
+                             </div>
+                             <div class="col-xs-6 col-md-4">
+                                <div class="form-group mb-sm-10">
+                                <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                                 </div>
+                              </div>
+                             <div class="col-xs-12 col-md-4   ">
+                                <div class=" mb-sm-10 pull-md-right pull-md-right pull-sm-none">
+                              <button type="button" (click)="sendmail()" class="btn btn-primary mr-2 ">Mail Advise Note</button>
+                              <button class="btn btn-small btn-success " title="Export to excel" (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"></i></button>
+                           </div>
+                           </div>
+                          </div>
+                          <div class="row" style="margin:0;">
+                             <div class=" table-responsive">
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                   <thead>
+                                      <tr role="row">
+                                         <th class="sorting_asc" tabindex="0"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Vendor code</th>
+                                         <th class="sorting" tabindex="0" style="min-width:300px;">Vendor name</th>
+                                         <th class="sorting" tabindex="0"   style="width: 199px;"> Email id</th>
+                                         <th class="sorting" tabindex="0"   style="width: 156px;">Bank a/c</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">IFSC code</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">Bank name</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">Cheque/utr no.</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">Advice note Mail Send</th>
+                                         <th class="sorting" tabindex="0"  style="width: 156px;">Action</th>
+                                      </tr>
+                                   </thead>
+                                   <tbody>
+                                      <tr *ngFor="let row of advisnotearr | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" role="row" class="odd">
+                                         <td class="sorting_1">{{row.VendorCode  == 'NULL' ? '':row.VendorCode}}</td>
+                                         <td>{{row.VendorName == 'NULL' ? '':row.VendorName}}</td>
+                                         <td>{{row.VendorEmail == 'NULL' ? '':row.VendorEmail}}</td>
+                                         <td>{{row.VendorAccount == 'NULL' ? '':row.VendorAccount}}</td>
+                                         <td>{{row.VendorBankIFSC == 'NULL' ? '':row.VendorBankIFSC}}</td>
+                                         <td>{{row.VendorBankName == 'NULL' ? '':row.VendorBankName}}</td>
+                                         <td>{{row.ChequeUTRNo == 'NULL' ? '':row.ChequeUTRNo}}</td>
+                                         <td>{{row.MailSendFlag == 'NULL' ? '':row.MailSendFlag}}</td>
+                                         <td>
+                                            <input type="checkbox" name="sendnote"  (change)="checkboxaction($event,row.PaymentAdviceNoteHeaderID)" id="sendnote{{row.PaymentAdviceNoteHeaderID}}"/>
+                                            &nbsp;<a *ngIf="row.MailSendFlag == 'Y'" target="_blank" href="{{url}}AdviceNotePdf/PaymentNote-{{row.VendorCode}}-{{row.PaymentAdviceNoteHeaderID}}.pdf">
+                                             <i title="Export PDF" class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                         </td>
+                                      </tr>
+                                   </tbody>
+                                </table>
+                             </div>
+                          </div>
+                          <div class="row">
+                             <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing {{(itemsPerPage < advisnotearr.length ? itemsPerPage : advisnotearr.length)}} of {{advisnotearr.length}} entries</div>
+                             </div>
+                             <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- /.box-body -->
+                 
+                  
+                  </div>
+                  
+                 <!-- /.box -->
+              </div>
+              <!--/.col (right) -->
+           </div>
+           <!-- /.row -->
+        </section>
+        <!-- /.content -->
+     </div>
