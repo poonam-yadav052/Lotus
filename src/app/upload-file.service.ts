@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { map } from  'rxjs/operators';
+
 const httpOptions = {
   headers: new HttpHeaders()
 };
@@ -25,6 +26,19 @@ export class UploadFileService {
     console.log(this.url+"getUsers");
     return this.http.get(this.url+"getUsers/",httpOptions)
   }
+
+  getmaxuser():Observable<any>{
+  return this.http.get(this.url+"getUserMax/",httpOptions);
+}
+
+addmember(data:any):Observable<any>{
+  return this.http.post(this.url+"saveUser/",data,httpOptions);
+}
+
+
+
+
+
   uploadfile(filetype,fileToUpload):Observable<any>{
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);

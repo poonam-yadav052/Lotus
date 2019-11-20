@@ -4,7 +4,7 @@ import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExcelService } from 'src/app/excel.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-member-list',
   templateUrl: './member-list.component.html',
@@ -20,7 +20,7 @@ export class MemberListComponent implements OnInit {
   url=""
   constructor(private spinner:NgxSpinnerService,private service:UploadFileService,
     private formBuilder: FormBuilder,
-    private excelService:ExcelService) {
+    private excelService:ExcelService,private router:Router) {
     /*this.form = this.formBuilder.group({
       sendnote: []
     });*/
@@ -29,6 +29,10 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.getUploadedData()
+  }
+
+  addnewmember(){
+    this.router.navigate(['addmember/']); 
   }
 
   checkboxaction(event,ref){

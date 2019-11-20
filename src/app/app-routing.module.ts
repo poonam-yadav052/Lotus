@@ -8,6 +8,8 @@ import { ShellComponent } from './shell/shell.component';
 import { LoginComponent } from './login/login.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MemberListComponent } from './pages/member-list/member-list.component';
+import { AddmemberComponent } from './pages/addmember/addmember.component';
+import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path:'', component:ShellComponent,
   children:[
   {path: 'home', component: HomeComponent},
-  {path: 'MemberList', component: MemberListComponent}
+  {path: 'MemberList', component: MemberListComponent},
+  {path: 'addmember', component: AddmemberComponent},
+  {path:'usersDisplay', component: UserdisplayComponent}
   ]
 }
 ];

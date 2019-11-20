@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MemberListComponent } from './pages/member-list/member-list.component';
+import { AddmemberComponent } from './pages/addmember/addmember.component';
+import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { MemberListComponent } from './pages/member-list/member-list.component';
     AppComponent,
     routingComponents,
     ShellComponent,
-    MemberListComponent
+    MemberListComponent,
+    AddmemberComponent,
+    UserdisplayComponent
   ],
   imports: [
     BrowserModule,
