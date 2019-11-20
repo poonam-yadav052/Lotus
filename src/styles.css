@@ -4,6 +4,133 @@
 /*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
 
 /* You can add global styles to this file, and also import other style files */
+html ,body{
+    font-family: Lato, Avenir, Verdana, Nunito;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #fff;
+    color: #fff!important;
+    letter-spacing: 0;
+    box-sizing: border-box;
+}
+.infobar, .infobar > .linkbar {
+    float: right;
+}
+.infobar {
+    margin: 0;
+    padding: 20px;
+}
+.infobar > .linkbar {
+    list-style: outside none none;
+    margin-bottom: 5px;
+}
+._pull-right,  .infobar,  .infobar > .linkbar {
+    float: right;
+}
+.infobar > .linkbar > li p {
+    margin: 0;
+}
+.infobar > .linkbar > li:first-child {
+    padding-right: 50px;
+}
+ul, li {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.infobar > .linkbar > li {
+    display: inline-table;
+    vertical-align: middle;
+    padding-left: 20px;
+}
+.main-footer{padding:10px 15px;background-color: #3a103f;color: white}
+.main-footer {
+    padding:10px 15px;background-color: #3a103f;color: white;
+    border-top: 1px solid #8f3398;
+}
+.-negative {
+    color: #f43;
+    font-weight: bold;
+}
+.logo-area .logo {
+    /* background: url('assets/img/logo.png') no-repeat center center; */
+    background-size: contain;
+    /* width: 140px; */
+    height: 20px;
+    padding: 30px 20px;
+    margin-left: 10px;
+}
+.main-header .logo {
+    transition: width .3s ease-in-out;
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    width: auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 0 10px;
+    font-weight: 300;
+    overflow: hidden;
+}
+tbody > tr > th, tbody > tr > td {
+    padding: 4px 10px;
+}
+tbody > tr > td.-positive {
+    color: #3cd247;
+    font-weight: bold;
+}
+tbody > tr > td.-negative {
+    color: #f43;
+    font-weight: bold;
+}
+.apl-section {
+    padding-top: 5px;
+}
+.apl-table.apl-table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(245, 245, 245, 0.1);
+}
+.apl-table.apl-table-hover tbody tr {
+    transition: background ease .5s;
+}
+
+.apl-section {
+    background: rgba(0, 0, 0, 0.4);
+    margin: 10px 0 0 0;
+    padding: 20px;
+}
+.agency-settings {
+    float: right;
+}
+.toggle-label {
+    display: inline-block;
+    margin-right: 6px;
+}
+.position-settings-wrapper {
+    display: inline-block;
+    margin-top: -14px;
+}
+.balance {
+    background: rgba(0, 0, 0, 0.33);
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+.balance dd, .balance dt, .balance dl {
+    display: inline-block;
+    margin-bottom: 0;
+}
+.balance dd {
+    margin-right: 20px;
+}
+.apl-section {
+    background: rgba(0, 0, 0, 0.4);
+    margin: 10px 0 0 0;
+    padding: 20px;
+}
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td{border:1px solid #ccc;}
 .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
     border-top: 1px solid #ccc;
@@ -14,7 +141,23 @@ line-height: normal;
 outline:none; 
 }
 .input-sm {height: 27px;line-height: 27px;}
-.box {border-radius:0px;border: 1px solid #d2d6de;box-shadow: none;}
+.box{
+
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+.box {
+    position: relative;
+    border-radius: 3px;
+    /* background: #ffffff; */
+    border-top: none;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.box {border-radius:0px;box-shadow: none;background-color: transparent}
 .pagination {margin: 0px 0;border-radius: 0px;float: right;}
 .pagination>li>a, .pagination>li>span{ padding: 5px 10px;}
 .content-header>h1 {font-size: 20px;}
