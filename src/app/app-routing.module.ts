@@ -1,19 +1,13 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
-import { UdvdataComponent } from './pages/udvdata/udvdata.component';
-import { DuplicatepaymentComponent } from './pages/duplicatepayment/duplicatepayment.component';
-import { PaymentadvicenoteComponent } from './pages/paymentadvicenote/paymentadvicenote.component';
-import { PaymentreconsilationComponent } from './pages/paymentreconsilation/paymentreconsilation.component';
-import { ViewhistoryComponent } from './pages/viewhistory/viewhistory.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { ShellComponent } from './shell/shell.component';
 import { LoginComponent } from './login/login.component';
-import { VendorlistComponent } from './pages/vendorlist/vendorlist.component';
-import { PaymentadvicependingComponent } from './pages/paymentadvicepending/paymentadvicepending.component';
 import {MatButtonModule} from '@angular/material/button';
+import { MemberListComponent } from './pages/member-list/member-list.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,13 +16,7 @@ const routes: Routes = [
   {path:'', component:ShellComponent,
   children:[
   {path: 'home', component: HomeComponent},
-  {path: 'udvdata', component: UdvdataComponent},
-  {path:'duplicatepayment', component: DuplicatepaymentComponent},
-  {path:'paymentadvicenote', component: PaymentadvicenoteComponent},
-  {path: 'paymentreconsilation', component:PaymentreconsilationComponent},
-  {path: 'viewhistory', component: ViewhistoryComponent},
-  {path:'paymentadvicenotepending', component: PaymentadvicependingComponent},
-  {path:'vendorlist',component:VendorlistComponent}
+  {path: 'MemberList', component: MemberListComponent}
   ]
 }
 ];
@@ -39,11 +27,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, 
-  HeaderComponent,
-  FooterComponent,
-  SidebarComponent,
-  ShellComponent, 
-  HomeComponent, 
-  UdvdataComponent, DuplicatepaymentComponent, 
-  PaymentadvicenoteComponent, PaymentreconsilationComponent,
-  ViewhistoryComponent,VendorlistComponent,PaymentadvicependingComponent ]
+  MemberListComponent,
+  FooterComponent,HeaderComponent,SidebarComponent,HomeComponent]

@@ -6,12 +6,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExcelService } from 'src/app/excel.service';
 
 @Component({
-  selector: 'app-viewhistory',
-  templateUrl: './viewhistory.component.html',
-  styleUrls: ['./viewhistory.component.css']
+  selector: 'app-member-list',
+  templateUrl: './member-list.component.html',
+  styleUrls: ['./member-list.component.css']
 })
-export class ViewhistoryComponent implements OnInit {
-  advisnotearr:PaymentAdviceNote[]=[]
+export class MemberListComponent implements OnInit {
+  members:Members[]=[]
   itemsPerPage=10
   sendnote:any;
   form: FormGroup;
@@ -37,15 +37,15 @@ export class ViewhistoryComponent implements OnInit {
   }
 
   exportAsXLSX():void {
-    this.excelService.exportAsExcelFile(this.advisnotearr, 'Payment Advisory Note');
+    this.excelService.exportAsExcelFile(this.members, 'Payment Advisory Note');
   }
 
   getUploadedData(){
     this.spinner.show();
-    this.service.getPaymentAdvisNoteHeader().subscribe(
+    this.service.getMemberList().subscribe(
     data=>{
-      this.advisnotearr=data;
-      console.log(this.advisnotearr);
+      this.members=data;
+      console.log(this.members);
       this.spinner.hide();
     },
     error=>{
@@ -59,13 +59,13 @@ export class ViewhistoryComponent implements OnInit {
     console.log(ids);
     this.service.sendmail(ids).subscribe(
     data=>{
-      //this.advisnotearr=data; 
+      //this.members=data; 
       for(var index in ids)
       {
         console.log(index)
-      //let index1=this.advisnotearr.findIndex(o=>o.PaymentAdviceNoteHeaderID==index);
+      //let index1=this.members.findIndex(o=>o.PaymentAdviceNoteHeaderID==index);
       //console.log(index1);
-      //this.advisnotearr[index1].MailSendFlag='Y';
+      //this.members[index1].MailSendFlag='Y';
       }
       this.chkData=[];
       this.getUploadedData();
@@ -78,16 +78,19 @@ export class ViewhistoryComponent implements OnInit {
   }
 
 }
-class PaymentAdviceNote{
-  PaymentAdviceNoteHeaderID;
-  VendorCode;
-  VendorName
-  VendorContanctName
-  VendorEmail
-  VendorAccount
-  VendorBankIFSC
-  VendorBankName
-  ChequeUTRNo
-  MailSendFlag
+class Members{
+  loginName
+  userName
+  Downline
+  BettingStatus
+  Status
+  Details
+  NetExposure
+  Take
+  Give
+  CreditLimit
+  createdDate
+  lastLogin
+  PT
+                                  
 }
-

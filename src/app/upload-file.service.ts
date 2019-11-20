@@ -16,11 +16,15 @@ export class UploadFileService {
   fileurl="https://krios.azurewebsites.net/"
   
   constructor(private http: HttpClient) { 
-    this.baseurl=this.env=="dev"?"https://localhost:44314/":"https://krios.azurewebsites.net/";
-    this.url=this.baseurl+"api/FileUpload/";
+    this.baseurl=this.env=="dev"?"http://localhost:3000/matieres/":"http://localhost:3000/matieres/";
+    this.url=this.baseurl;
     this.fileurl=this.baseurl+"";
   }
 
+  getMemberList():Observable<any>{
+    console.log(this.url+"getUsers");
+    return this.http.get(this.url+"getUsers/",httpOptions)
+  }
   uploadfile(filetype,fileToUpload):Observable<any>{
     const formData: FormData = new FormData();
     formData.append('fileKey', fileToUpload, fileToUpload.name);
@@ -62,7 +66,7 @@ export class UploadFileService {
   }
 
   GetSAPBPCSAdviceNotePending():Observable<any>{
-    return this.http.get(this.url+"GetSAPBPCSAdviceNotePending",httpOptions);
+    return this.http.get(this.url+"GetSAPBPCSPending",httpOptions);
   }
 
   Login(username:string,password:string):Observable<any>{
@@ -70,7 +74,7 @@ export class UploadFileService {
     formData.append('username', username);
     formData.append('password',btoa(password));
     console.log(btoa(password))
-    return this.http.post(this.url+"Login",formData,httpOptions)
+    return this.http.post(this.url+"login",formData,httpOptions)
   }
 
   sendmail(ids:string[]):Observable<any>{

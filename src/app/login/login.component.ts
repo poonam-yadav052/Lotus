@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
     private spinner:NgxSpinnerService,
     private modalservice: BsModalService,private router:Router) { 
     this.loginForm = this.formBuilder.group({
-      username: ['',[Validators.required]],
-      password: ['',[Validators.required]]
+      username: ['Test@123',[Validators.required]],
+      password: ['Test@123',[Validators.required]]
     });
   }
 
