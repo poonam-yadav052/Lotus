@@ -1,23 +1,86 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
+   
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div ng-if="!isAggregatedView" class="ng-scope">
+      <!-- ngIf: isAgent -->
+      <div class="balance ng-scope" ng-if="isAgent">
+        <div class="status">
+          <dl class="status-list">
+            <dt class="ng-binding">Balance Down:</dt>
+            <dd ng-class="{'-negative': cashBalance < 0, '-positive': cashBalance >= 0}" class="ng-binding -positive"
+              style="">42,015.15</dd>
+            <dt class="ng-binding">Balance Up:</dt>
+            <dd ng-class="{'-negative': totalBalance < 0, '-positive': totalBalance >= 0}" class="ng-binding -negative"
+              style="">-41,303.23</dd>
+            <dt class="ng-binding">Net Exposure:</dt>
+            <dd ng-class="{'-negative': actualNetExposure < 0, '-positive': actualNetExposure >= 0}" class="ng-binding -positive">0.00</dd>
+            <dt class="ng-binding">Available Credit:</dt>
+            <dd class="ng-binding">1,700.00</dd>
+          </dl>
+          <div class="agency-settings">
+            <!-- ngIf: isPtAvailable -->
+            <div class="position-settings-wrapper ng-scope" ng-if="isPtAvailable">
+              <label class="toggle-label ng-scope" translate="">Position Taking:</label>
+              <div class="toggle-wrap _clearfix" ng-class="{'one-click-active': oneClickSettings.active === 'true'}">
+                <!-- //toggle-button -->
+              </div>
+            </div><!-- end ngIf: isPtAvailable -->
+          </div>
+        </div>
+      </div><!-- end ngIf: isAgent -->
+      <!-- ngIf: isCompanyApp -->
+    </div>
 
-    <!-- Main content -->
-    <section class="content" style="display:flex;align-items:center;justify-content:center;">
-     <h1 style="color:cadetblue;">Dashboard</h1>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
- 
+  </section>
+
+  <!-- Main content -->
+  <section class="apl-section">
+    <!-- ngView: -->
+    <div class="content balance">
+      <!-- ngIf: vm.showTitle -->
+      <div class="header _clearfix ng-scope" ng-if="vm.showTitle">
+        <h1 class="ng-binding">Balance Information</h1>
+      </div><!-- end ngIf: vm.showTitle -->
+
+      <section>
+        <table class="generic apl-table apl-table-striped apl-table-hover _auto-width">
+          <tbody>
+            <tr>
+              <th class="ng-binding">Net Exposure</th>
+              <td class="numeric ng-binding -positive" ng-class="{'-negative': vm.accountInfo.actualNetExposure < 0, '-positive': vm.accountInfo.actualNetExposure >= 0}"
+                style="">0.00</td>
+            </tr>
+            <tr>
+              <th class="ng-binding">Balance Down</th>
+              <td class="numeric ng-binding -positive" ng-class="{'-negative': vm.accountInfo.cashBalance < 0, '-positive': vm.accountInfo.cashBalance >= 0}"
+                style="">42,095.15</td>
+            </tr>
+            <tr>
+              <th class="ng-binding">Balance Up</th>
+              <td class="numeric ng-binding -negative" ng-class="{'-negative': vm.accountInfo.totalBalance < 0, '-positive': vm.accountInfo.totalBalance >= 0}"
+                style="">-41,383.23</td>
+            </tr>
+            <tr>
+              <th class="ng-binding">Credit Limit</th>
+              <td class="numeric ng-binding"> 50,000.00</td>
+            </tr>
+            <tr>
+              <th class="ng-binding">Available Credit</th>
+              <td class="numeric ng-binding"> 1,700.00</td>
+            </tr>
+            <tr class="-qa-total-downline">
+              <th class="ng-binding">Total credit given to Members</th>
+              <td class="numeric ng-binding"> 48,300.00</td>
+            </tr>
+            <!-- ngIf: vm.accountInfo.totalMACredit != null -->
+            <!-- ngIf: vm.accountInfo.totalAgentCredit != null -->
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
