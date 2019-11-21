@@ -20,6 +20,7 @@ export class UploadFileService {
     this.baseurl=this.env=="dev"?"http://localhost:3000/matieres/":"http://localhost:3000/matieres/";
     this.url=this.baseurl;
     this.fileurl=this.baseurl+"";
+    httpOptions.headers.append("Content-Type","application/json")
   }
 
   getMemberList():Observable<any>{
@@ -31,12 +32,9 @@ export class UploadFileService {
   return this.http.get(this.url+"getUserMax/",httpOptions);
 }
 
-addmember(data:any):Observable<any>{
-  return this.http.post(this.url+"saveUser/",data,httpOptions);
-}
-
-
-
+  addmember(data:any):Observable<any>{
+    return this.http.post(this.url+"saveMember/",data,httpOptions);
+  }
 
 
   uploadfile(filetype,fileToUpload):Observable<any>{

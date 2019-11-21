@@ -20,10 +20,14 @@ export class AddmemberComponent implements OnInit {
 
   userName1 = "";
   userName2 = "";
- 
-
+  userdata:any;
+  creditlimit:number
+  userrole:number;
   ngOnInit()
   {
+    this.userdata=JSON.parse(localStorage.getItem('userdetails'));
+    this.creditlimit=this.userdata["creditLimit"]
+    this.userrole=this.userdata["userRole"]
     this.userForm = this.formBuilder.group({
   		userName1: ['', Validators.required],
       userName2: ['', [Validators.required]],
@@ -45,7 +49,8 @@ export class AddmemberComponent implements OnInit {
     console.log("user Max data result=="+JSON.stringify(data[0].userName));
     var username = data[0].userName;
     var a = username.split('-');
-    this.userprefix=a[0];   
+    this.userprefix=a[0];  
+    this.userprefix='L9870405M' 
     this.userName1 = a[1];
     this.userName2 = a[1];
     this.spinner.hide();
@@ -61,13 +66,19 @@ export class AddmemberComponent implements OnInit {
     console.log("IN");
     this.submitted = true;
     let data: any = Object.assign(this.userForm.value);
-    console.log("IN"+JSON.stringify(data));
+    console.log("IN"+JSON.stringify(this.userdata));
     this.spinner.show();
-    this.service.addmember(JSON.stringify(data)).subscribe(
+    data.added_by_roleId=1;//this.userrole;
+    data.addedBy_Creditlimit=this.creditlimit
+    data.userRole=this.userrole+1;
+    data.userRole=this.userrole+1;
+    data.addedBy=this.userdata["ID"]
+    console.log("IN"+JSON.stringify(data));
+    this.service.addmember(data).subscribe(
     data=>{
-      this.spinner.hide();
+    this.spinner.hide();
     console.log(data);
-    let path = '/usersDisplay';
+    let path = '/MemberList';
     this.router.navigate([path]);
     this.registered = true;
     },

@@ -2,11 +2,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <h1>
-              Member Listing
+              New Member
            </h1>
            <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li class="active">Member List</li>
+              <li class="active">New Member</li>
            </ol>
         </section>
         <div class="row">
@@ -19,14 +19,14 @@
                           <div class="userForm1 col-md-3" style="">                 
                               <label for="label" class="form-label userFormheadingLable">User Information</label>
                               <hr/>
-                              <div class="form-group has-error" [ngClass]=""> <!-- First Name -->
-                                <label for="userName" class="userFormLable">Username</label>
-                              <br/>
-                                {{userprefix}}<input type="text"  class=" col-md-2" ngModel="{{userName1}}" id="userName1" name="userName1" formControlName="userName1" [value]="userName1" placeholder=""> - 
+                              <div class="form-group" [ngClass]=""> <!-- First Name -->
+                                <label for="userName" class="control-label userFormLable">Username</label>
+                                <br><span style="float: left;">{{userprefix}}&nbsp;</span>
+                                <input type="text"  class=" col-md-2" ngModel="{{userName1}}" id="userName1" name="userName1" formControlName="userName1" [value]="userName1" placeholder="">
                                 <input type="text" formControlName="userName2" ngModel="{{userName2}}" value="{{userName2}}" class=" col-md-2" id="userName2" name="userName2" placeholder="">
                                 <p *ngIf="i" id="userName_error" class="help-block">Invalid User name.</p>
                               </div>
-                            
+                              <br>
                               <div class="form-group" [ngClass]=""> <!-- Last Name -->
                                 <label for="last_name" class="control-label userFormLable">Login Name</label>
                                 <input type="text" formControlName="loginName" class="form-control" id="loginName" name="loginName" placeholder="">
@@ -68,7 +68,7 @@
                             <div class="form-group" [ngClass]=""> <!-- Email -->
                               <label for="email" class="control-label  userFormLable">Credit Limit</label>
                               <div class="form-group ">
-                                <input type="text"  formControlName="creditLimit"  class="form-control " id="creditLimit" name="creditLimit" placeholder=""><=0 >=0
+                                <input type="text"  formControlName="creditLimit"  class="form-control " id="creditLimit" name="creditLimit" placeholder=""><=0 {{creditlimit}} >=0
                               </div>
                             </div>
                             
