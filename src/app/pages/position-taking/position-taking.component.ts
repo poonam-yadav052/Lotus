@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class PositionTakingComponent implements OnInit {
   positionTaking: any;
-
+  searchText;
+  itemsPerPage = 10
   constructor(private spinner: NgxSpinnerService, private service: UploadFileService,
     private formBuilder: FormBuilder,
     private excelService: ExcelService, private router: Router) { }

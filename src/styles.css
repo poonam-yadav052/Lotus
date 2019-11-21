@@ -16,6 +16,26 @@ html ,body{
     letter-spacing: 0;
     box-sizing: border-box;
 }
+.apl-icon-sport-cricket:before {
+    content: '\a003';
+}
+.apl-icon-sport-football:before {
+    content: '\a004';
+}
+.apl-icon-sport-tennis:before {
+    content: '\a005';
+}
+.apl-icon-sport-horseracing:before {
+    content: '\a002';
+}
+.pt-listing .pt-table tr th .list-sort.inactive::after {
+    content: "\F0DD";
+    font-family: 'Apollo', Arial, sans-serif;
+    color: #aaa;
+}
+.pt-listing .pt-table tbody tr:nth-child(1), .pt-listing .pt-table .rowspan-labels {
+    background: #58425e;
+}
 .login-form {
   /* position: fixed; */
     width: 100%;
