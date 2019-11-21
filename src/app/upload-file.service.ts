@@ -28,7 +28,7 @@ export class UploadFileService {
   }
   getPositionTaskList():Observable<any>{
     console.log(this.url+"getUsers");
-    return this.http.get(this.url+"getPositionTakiing?userId=1",httpOptions)
+    return this.http.get(this.url+"getPositionTaking?userId=1",httpOptions)
   }
 
   getmaxuser():Observable<any>{

@@ -1,1 +1,169 @@
-<p>position-taking works!</p>
+<div class="content-wrapper" style="min-height: 956px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            position Taking Listing
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Position Taking List</li>
+        </ol>
+    </section>
+    <div class="row">
+        <div class="col-md-12">{{uploadfileresult}}</div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- right column -->
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+
+                <div class="box">
+
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                            <div class="row">
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="dataTables_length" id="example1_length">
+                                        <label>
+                                            Show entries
+                                            <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1"
+                                                class="form-control input-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="form-group mb-sm-10">
+                                        <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                                <input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+                                                    autocomplete="off" placeholder="Search"></label></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4   ">
+
+                                    <div class=" mb-sm-10 pull-md-right pull-md-right pull-sm-none">
+                                        <button class="btn btn-success " title="New Member" (click)="addnewmember()">Edit</button>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-small btn-success " title="Export to excel"
+                                            (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin:0;">
+                                <div class=" table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                                        aria-describedby="example1_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" style="width: 156px;">Login Name</th>
+                                                <th class="sorting_asc" tabindex="0" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"
+                                                    style="width: 182px;">ID</th>
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        status
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+                                                <th class="sorting" tabindex="0" style="width: 199px;">
+                                                    <i class="sport-icon apl-icon-sport-cricket" title="Cricket"></i>
+                                                    <span class="sport-info ng-binding ng-scope" title="Given by upline">
+                                                        (0%)
+                                                    </span>
+                                                    <span class="list-sort inactive"></span>
+                                                </th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let row of positionTaking | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
+                                                role="row" class="vs-repeat-repeated-element ng-scope odd">
+
+                                                <td class="sorting_1">{{row.loginName == 'NULL' ? '':row.loginName}}</td>
+                                                <td>{{row.userName == 'NULL' ? '':row.userName}}</td>
+                                                <td>{{row.status == 'NULL' ? '':row.status}}</td>
+                                                <td>{{row.sport == 'NULL' ? '':row.sport}}</td>
+                                                <td>{{row.cricket == 'NULL' ? '':row.cricket}}</td>
+                                               
+                                                <td>{{row.football == 'NULL' ? '':row.football}}</td>
+                                                <td>{{row.tennis == 'NULL' ? '':row.tennis}}</td>
+                                                <td>{{row.horseRacing == 'NULL' ? '':row.horseRacing}}</td>
+                                                <td>{{row.greyhoundRacing == 'NULL' ? '':row.greyhoundRacing}}</td>
+
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing
+                                        {{(itemsPerPage < positionTaking.length ? itemsPerPage :
+                                            positionTaking.length)}} of {{positionTaking.length}} entries</div> </div>
+                                            <div class="col-sm-7">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+
+
+                    </div>
+
+                    <!-- /.box -->
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
