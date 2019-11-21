@@ -80,19 +80,19 @@
                               </thead>
                               <tbody>
                                  <tr *ngFor="let row of members | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
-                                    role="row" class="odd">
+                                    role="row" class="vs-repeat-repeated-element ng-scope odd">
 
                                     <td class="sorting_1">{{row.loginName == 'NULL' ? '':row.loginName}}</td>
                                     <td>{{row.userName == 'NULL' ? '':row.userName}}</td>
-                                    <td>{{row.Downline == 'NULL' ? '':row.Downline}}</td>
-                                    <td>{{row.BettingStatus == 'NULL' ? '':row.BettingStatus}}</td>
-                                    <td>{{row.Status == 'NULL' ? '':row.Status}}</td>
-                                    <td>{{row.Details == 'NULL' ? '':row.Details}}</td>
-                                    <td>{{row.NetExposure == 'NULL' ? '':row.NetExposure}}</td>
-                                    <td>{{row.Take == 'NULL' ? '':row.Take}}</td>
-                                    <td>{{row.Give == 'NULL' ? '':row.Give}}</td>
-                                    <td>{{row.CreditLimit == 'NULL' ? '':row.CreditLimit}}</td>
-                                    <td>{{row.PT == 'NULL' ? '':row.PT}}</td>
+                                    <td>{{row.downline == 'NULL' ? '':row.downline}}</td>
+                                    <td>{{row.bettingStatus == 'NULL' ? '':row.bettingStatus}}</td>
+                                    <td>{{row.status == 'NULL' ? '':row.status}}</td>
+                                    <td>{{row.details == 'NULL' ? '':row.details}}</td>
+                                    <td>{{row.netexposure == 'NULL' ? '':row.netexposure}}</td>
+                                    <td>{{row.take == 'NULL' ? '':row.take}}</td>
+                                    <td>{{row.give == 'NULL' ? '':row.give}}</td>
+                                    <td>{{row.creditLimit == 'NULL' ? '':row.creditLimit}}</td>
+                                    <td>{{row.paymentThreshould == 'NULL' ? '':row.paymentThreshould}}</td>
                                     <td>{{row.createdDate == 'NULL' ? '':row.createdDate}}</td>
                                     <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin}}</td>
 
