@@ -16,6 +16,8 @@ import { MemberListComponent } from './pages/member-list/member-list.component';
 import { AddmemberComponent } from './pages/addmember/addmember.component';
 import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component';
 import { PositionTakingComponent } from './pages/position-taking/position-taking.component';
+import { UserlistComponent } from './pages/userlist/userlist.component';
+import { AdduserComponent } from './pages/adduser/adduser.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { PositionTakingComponent } from './pages/position-taking/position-taking
     MemberListComponent,
     AddmemberComponent,
     UserdisplayComponent,
-    PositionTakingComponent
+    PositionTakingComponent,
+    UserlistComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,

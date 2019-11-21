@@ -11,6 +11,8 @@ import { MemberListComponent } from './pages/member-list/member-list.component';
 import { AddmemberComponent } from './pages/addmember/addmember.component';
 import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component';
 import { PositionTakingComponent } from './pages/position-taking/position-taking.component';
+import {UserlistComponent} from './pages/userlist/userlist.component';
+import {AdduserComponent} from './pages/adduser/adduser.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'MemberList', component: MemberListComponent},
   {path: 'addmember', component: AddmemberComponent},
   {path:'usersDisplay', component: UserdisplayComponent},
-  {path:'positionTaking', component: PositionTakingComponent}
+  {path:'positionTaking', component: PositionTakingComponent},
+  {path:'userlist', component: UserlistComponent},
+  {path:'adduser', component: AdduserComponent}
   ]
 }
 ];
@@ -34,4 +38,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, 
   MemberListComponent,
-  FooterComponent,HeaderComponent,SidebarComponent,HomeComponent,PositionTakingComponent]
+  FooterComponent,HeaderComponent,SidebarComponent,HomeComponent,PositionTakingComponent,UserlistComponent,AdduserComponent]

@@ -1,0 +1,122 @@
+<div class="content-wrapper" style="min-height: 956px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+           <h1>
+              User Listing
+           </h1>
+           <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+              <li class="active">User List</li>
+           </ol>
+        </section>
+        <div class="row">
+           <div class="col-md-12">{{uploadfileresult}}</div>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+           <div class="row">
+              <!-- right column -->
+              <div class="col-md-12">
+                 <!-- Horizontal Form -->
+     
+                 <div class="box">
+     
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                       <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                          <div class="row">
+                             <div class="col-xs-6 col-md-4">
+                                <div class="dataTables_length" id="example1_length">
+                                   <label>
+                                      Show entries
+                                      <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1"
+                                         class="form-control input-sm">
+                                         <option value="10">10</option>
+                                         <option value="25">25</option>
+                                         <option value="50">50</option>
+                                         <option value="100">100</option>
+                                      </select>
+     
+                                   </label>
+                                </div>
+                             </div>
+                             <div class="col-xs-6 col-md-4">
+                                <div class="form-group mb-sm-10">
+                                   <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                         <input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+                                            autocomplete="off" placeholder="Search"></label></div>
+                                </div>
+                             </div>
+                             <div class="col-xs-12 col-md-4   ">
+                                
+                                <div class=" mb-sm-10 pull-md-right pull-md-right pull-sm-none">
+                                   <button class="btn btn-success " title="New User" (click)="addnewmember()">Create New User</button>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-small btn-success " title="Export to excel" (click)="exportAsXLSX()"><i
+                                         class="fa fa-file-excel-o"></i></button>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="row" style="margin:0;">
+                             <div class=" table-responsive">
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                                   aria-describedby="example1_info">
+                                   <thead>
+                                      <tr role="row">
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Username</th>
+                                         <th class="sorting_asc" tabindex="0" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"
+                                            style="width: 182px;">Edit</th>
+                                         <th class="sorting" tabindex="0" style="min-width:300px;">Access</th>
+                                         <th class="sorting" tabindex="0" style="width: 199px;"> User Status</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">First Name</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Last Name</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Created</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Last Login Date</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Last IP</th>
+
+                                      </tr>
+                                   </thead>
+                                   <tbody>
+                                      <tr *ngFor="let row of members | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
+                                         role="row" class="vs-repeat-repeated-element ng-scope odd">
+     
+                                         <td class="sorting_1">{{row.loginName == 'NULL' ? '':row.loginName}}</td>
+                                         <td>{{row.userName == 'NULL' ? '':row.userName}}</td>
+                                         <td>{{row.downline == 'NULL' ? '':row.downline}}</td>
+                                         <td>{{row.status == 'NULL' ? '':row.status}}</td>
+                                         <td>{{row.firstName == 'NULL' ? '':row.firstName}}</td>
+                                         <td>{{row.lastName == 'NULL' ? '':row.lastName}}</td>
+                                         <td>{{row.createdDate == 'NULL' ? '':row.createdDate}}</td>
+                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin}}</td>
+                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin}}</td>
+                                        
+     
+                                      </tr>
+                                   </tbody>
+                                </table>
+                             </div>
+                          </div>
+                          <div class="row">
+                             <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing
+                                   {{(itemsPerPage < members.length ? itemsPerPage : members.length)}} of {{members.length}}
+                                      entries</div> </div> <div class="col-sm-7">
+                                      <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                         <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                      </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <!-- /.box-body -->
+     
+     
+                    </div>
+     
+                    <!-- /.box -->
+                 </div>
+                 <!--/.col (right) -->
+              </div>
+              <!-- /.row -->
+        </section>
+        <!-- /.content -->
+     </div>

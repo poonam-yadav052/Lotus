@@ -6,12 +6,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExcelService } from 'src/app/excel.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-member-list',
-  templateUrl: './member-list.component.html',
-  styleUrls: ['./member-list.component.css']
+  selector: 'app-userlist',
+  templateUrl: './userlist.component.html',
+  styleUrls: ['./userlist.component.css']
 })
-export class MemberListComponent implements OnInit {
-  members: Members[] = []
+export class UserlistComponent implements OnInit {
+
+  members: Users[] = []
   itemsPerPage = 10
   sendnote: any;
   form: FormGroup;
@@ -36,7 +37,7 @@ export class MemberListComponent implements OnInit {
   }
 
   addnewmember() {
-    this.router.navigate(['addmember/']);
+    this.router.navigate(['adduser/']);
   }
 
   checkboxaction(event, ref) {
@@ -50,7 +51,7 @@ export class MemberListComponent implements OnInit {
 
   getUploadedData() {
     this.spinner.show();
-    this.service.getMemberList(this.loginuserid).subscribe(
+    this.service.getUserList(this.loginuserid).subscribe(
       data => {
         if (data.messege == "Success") {
           this.members = data.result;
@@ -89,19 +90,37 @@ export class MemberListComponent implements OnInit {
   }
 
 }
-class Members {
-  loginName
-  userName
-  downline
-  bettingStatus
-  status
-  details
-  netexposure
-  take
-  give
-  creditLimit
-  createdDate
-  lastLogin
-  paymentThreshould
-
+class Users{
+  ID;
+userRole;
+userName;
+firstName;
+lastName;
+loginName;
+password;
+notes;
+status;
+createdDate;
+lastLogin;
+roleName;
+betSettingId;
+cricket;
+fancyMarkets;
+exchRuns;
+football;
+Tennis;
+horseRacing;
+greyhoundRacing;
+casino;
+positionTakingId;
+posSport;
+posCricket;
+posFootball;
+posTennis;
+posHorseRacing;
+posGreyhoundRacing;
+posCasino;
+creditLimit;
+paymentThreshould;
+creditlimitId;
 }

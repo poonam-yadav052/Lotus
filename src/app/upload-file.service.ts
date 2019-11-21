@@ -23,10 +23,15 @@ export class UploadFileService {
     httpOptions.headers.append("Content-Type","application/json")
   }
 
-  getMemberList():Observable<any>{
+  getMemberList(loginid:number):Observable<any>{
     console.log(this.url+"getUsers");
-    return this.http.get(this.url+"getMembers?userId=1",httpOptions)
+    return this.http.get(this.url+"getMembers?userId="+loginid,httpOptions)
   }
+
+  getUserList(loginid:number):Observable<any>{
+    return this.http.get(this.url+"getAdminUsers",httpOptions)
+  }
+
   getPositionTaskList():Observable<any>{
     console.log(this.url+"getUsers");
     return this.http.get(this.url+"getPositionTakiing?userId=1",httpOptions)
