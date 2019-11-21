@@ -43,15 +43,14 @@ export class LoginComponent implements OnInit {
         console.log("Success")
         console.log(data)
         this.spinner.hide(); 
-          if(data == "Login Fail")     
+          if(data.result == "Invalid login details!")     
           {
 
           }
           else{
-          this.result=data;  
+          this.result=data;           
           localStorage.clear();
-          localStorage.setItem('username',this.f.username.value)
-          localStorage.setItem('usertoken',"true");
+          localStorage.setItem('userdetails',JSON.stringify(data.result[0]))
           this.router.navigate(['../home/']);     
           } 
       },

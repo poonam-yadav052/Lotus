@@ -8,15 +8,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   username:string;
+  userdata:any;
   constructor(private router:Router) { }
 
   ngOnInit() {
-    this.username=localStorage.getItem('username');
+    this.userdata=JSON.parse(localStorage.getItem('userdetails'));
+    this.username=this.userdata["userName"]
   }
 
   signout(){
-    localStorage.setItem('usertoken',"")
-    localStorage.setItem('username',"")
+    localStorage.setItem('userdetails',"")
     this.router.navigate(['']);
   }
 
