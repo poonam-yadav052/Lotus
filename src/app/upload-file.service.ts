@@ -84,10 +84,12 @@ addmember(data:any):Observable<any>{
   }
 
   Login(username:string,password:string):Observable<any>{
-    const formData: FormData = new FormData();
-    formData.append('username', username);
-    formData.append('password',btoa(password));
-    console.log(btoa(password))
+    //const formData: FormData = new FormData();
+    //formData.append('username', username);
+    //password=btoa(password)
+    //formData.append('password',password);
+    //console.log(btoa(password))
+    const formData:any={"userName":username,"password":password,"loginIp":"192.168.1.100"}
     return this.http.post(this.url+"login",formData,httpOptions)
   }
 

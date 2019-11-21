@@ -2,7 +2,7 @@
   <!-- Logo -->
   <a routerLink="home" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>P</b>A</span>
+    <span class="logo-mini"><b></b></span>
     <!-- logo for regular state and mobile devices -->
     <img src="assets/img/logo.png" class="logo-area logo" alt="Logo Image">
   </a>
@@ -219,12 +219,11 @@
         <div class="infobar">
           <ul class="linkbar">
             <li>
-              <p class="ng-binding">Logged in as yash10120</p>
+              <p class="ng-binding">Logged in as {{username}}</p>
               <!-- ngIf: userData.user.level !== 'COY' -->
-              <p class="last-login ng-binding ng-scope" ng-if="userData.user.level !== 'COY'">Last logged in:
-                <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class="ng-binding ng-isolate-scope">20/11/2019
-                  21:18</time>
-              </p><!-- end ngIf: userData.user.level !== 'COY' -->
+              <!--<p class="last-login ng-binding ng-scope" ng-if="userData.user.level !== 'COY'">Last logged in:
+                <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class="ng-binding ng-isolate-scope"></time>
+              </p>--><!-- end ngIf: userData.user.level !== 'COY' -->
             </li>
             <!-- ngIf: hasAggregatedAccount -->
             <li class="help">
