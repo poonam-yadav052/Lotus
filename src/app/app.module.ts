@@ -15,6 +15,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MemberListComponent } from './pages/member-list/member-list.component';
 import { AddmemberComponent } from './pages/addmember/addmember.component';
 import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component';
+import { PositionTakingComponent } from './pages/position-taking/position-taking.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component'
     ShellComponent,
     MemberListComponent,
     AddmemberComponent,
-    UserdisplayComponent
+    UserdisplayComponent,
+    PositionTakingComponent
   ],
   imports: [
     BrowserModule,

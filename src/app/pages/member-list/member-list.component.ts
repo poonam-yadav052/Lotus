@@ -53,10 +53,8 @@ export class MemberListComponent implements OnInit {
           console.log(this.members);
           this.spinner.hide();
         } else {
-
           this.spinner.hide();
         }
-
       },
       error => {
         this.spinner.hide();
