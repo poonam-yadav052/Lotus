@@ -5,13 +5,19 @@
     <div class="login-box-body">
 
       <div *ngIf="result != ''">{{result}}</div>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="">
+      <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="">
         <div class="form-group has-feedback">
           <input autocomplete="false" formControlName="username" type="text" placeholder="Username" class="form-control"
             name="username" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
           <div class="text-danger" *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div class="text-danger" *ngIf="f.username.errors.required">Please enter username</div>
+          </div>
+        </div>
+        <div class="apl-form-row ng-scope">
+          <label class="apl-form-label qa-username-label" for="username">Enter Username:</label>
+          <div class="apl-form-controls">
+            <input id="username" type="text" class="-long apl-form-large qa-username-input ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="vm.credentials.username" style="">
           </div>
         </div>
         <div class="form-group has-feedback">
@@ -36,12 +42,56 @@
             </div>
           </div>
 
-          <!-- /.col -->
+          
         </div>
-      </form>
+      </form> -->
+
+      
+      <div  class="login-form ng-scope">
+        <section class="qa-manager-login-form _clearfix">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="" class="apl-form-horizontal apl-form ng-valid ng-isolate-scope ng-dirty ng-valid-parse" >
+            
+            <div class="apl-form-row ng-scope">
+              <label class="apl-form-label qa-username-label" for="username">Enter Username:</label>
+              <div class="apl-form-controls">
+                <input autocomplete="false" formControlName="username" type="text" placeholder="Username"
+                name="username" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="-long apl-form-large qa-username-input ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" >
+              </div>
+            </div>
 
 
-      <!-- <a href="#">Forgot Password</a><br> -->
+
+            <div class="apl-form-row ng-scope">
+              <label class="apl-form-label qa-password-label" for="password">Enter Password:</label>
+              <div class="apl-form-controls">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password" name="password"
+                id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="-long apl-form-large qa-password-input ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" >
+              </div>
+            </div>
+
+            <div class="apl-form-row apl-form-controls ng-scope">
+              <button id="submit" type="submit" class="-action qa-submit-button apl-btn apl-btn-primary apl-btn-large _pull-right btn-login ng-binding" ng-disabled="vm.submitDisabled">Login</button>
+            </div>
+            <div class="apl-form-row browsers ng-scope">
+              <label class="apl-form-label qa-browsers-label">Best Viewed In:</label>
+              <div class="apl-form-controls">
+                <span class="icon firefox"></span>
+                <span class="icon ie"></span>
+                <span class="icon chrome"></span>
+              </div>
+            </div>
+            <div class="apl-form-row ng-scope">
+              <tr class="error ng-isolate-scope ng-hide" ng-show="hasError" apl-login-errors="">
+        <th>&nbsp;</th>
+        <td class="ng-binding">
+          
+        </td>
+      </tr>
+            </div>
+          </form>
+        </section>
+      </div>
+
 
 
     </div>
