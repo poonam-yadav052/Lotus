@@ -1,0 +1,85 @@
+<div class="content-wrapper" >
+   
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          
+           <app-pageheader></app-pageheader>
+        </section>
+        <div class="row">
+           <div class="col-md-12">{{uploadfileresult}}</div>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+<ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">Activity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Bet List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Betting P&amp;L</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Account Statement</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Transfer Statement</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Net Exposure</a>
+                  </li>
+      </ul>
+
+      <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade active show" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                    <table class="apl-table days">
+                            <tbody><tr>
+                              <td class="_align-right ng-scope" translate="">Today</td>
+                              <td class="_align-right ng-scope" translate="">3 days</td>
+                              <td class="_align-right ng-scope" translate="">7 days</td>
+                              <td class="_align-right ng-scope" translate="">30 days</td>
+                              <td class="_align-right ng-scope" translate="">Lifetime</td>
+                            </tr>
+                          </tbody></table>
+                          <table class="apl-table apl-table-striped apl-table-hover">
+                            <tbody><!-- ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                              <td class="_align-right  -negative">-50.00</td>
+                              <td class="_align-right  -negative">-503.16</td>
+                              <td class="_align-right  -negative">-296.66</td>
+                              <td class="_align-right  -negative">-296.66</td>
+                              <td class="_align-right  -negative">-296.66</td>
+                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                              <td class="_align-right  -positive">0.00</td>
+                              <td class="_align-right  -negative">-4.10</td>
+                              <td class="_align-right  -negative">-13.22</td>
+                              <td class="_align-right  -negative">-13.22</td>
+                              <td class="_align-right  -negative">-13.22</td>
+                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                              <td class="_align-right  -negative">-50.00</td>
+                              <td class="_align-right  -negative">-507.26</td>
+                              <td class="_align-right  -negative">-309.88</td>
+                              <td class="_align-right  -negative">-309.88</td>
+                              <td class="_align-right  -negative">-309.88</td>
+                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                              <td class="_align-right ">50.00</td>
+                              <td class="_align-right ">15,357.26</td>
+                              <td class="_align-right ">17,638.77</td>
+                              <td class="_align-right ">17,638.77</td>
+                              <td class="_align-right ">17,638.77</td>
+                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
+                          </tbody></table> 
+            </div>
+            <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+               Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam. 
+            </div>
+            <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
+               Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna. 
+            </div>
+            <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
+               Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
+            </div>
+          </div>
+        </section>
+        <!-- /.content -->
+     </div>

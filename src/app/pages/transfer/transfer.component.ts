@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BsModalRef, BsModalService, CarouselConfig } from 'ngx-bootstrap';
 import { UploadFileService } from 'src/app/upload-file.service';
@@ -6,11 +6,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExcelService } from 'src/app/excel.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-member-list',
-  templateUrl: './member-list.component.html',
-  styleUrls: ['./member-list.component.css']
+  selector: 'app-transfer',
+  templateUrl: './transfer.component.html',
+  styleUrls: ['./transfer.component.css']
 })
-export class MemberListComponent implements OnInit {
+export class TransferComponent implements OnInit {
   members: Members[] = []
   itemsPerPage = 10
   sendnote: any;
@@ -95,6 +95,7 @@ export class MemberListComponent implements OnInit {
   }
 
 }
+
 class Members {
   loginName
   userName

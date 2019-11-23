@@ -1,0 +1,39 @@
+<div class="row" style="padding-top:10px">
+        <marquee class="ng-isolate-scope"><!-- ngIf: vm.messages.length !== 0 --><section ng-if="vm.messages.length !== 0" class="marquee ng-scope" style="">
+                <div class="marquee__notifications">
+                  <ul class="marquee__list marquee__list--scroll">
+                    <!-- ngRepeat: message in vm.messages track by $index --><li ng-repeat="message in vm.messages track by $index" class="marquee__list-item ng-binding ng-scope">The Mzansi Super League and T10 League are streaming on our fast live video service. Watch on mobile!</li><!-- end ngRepeat: message in vm.messages track by $index -->
+                  </ul>
+                </div>
+              </section><!-- end ngIf: vm.messages.length !== 0 --></marquee>
+        <div ng-if="!isAggregatedView" class="ng-scope">
+          <!-- ngIf: isAgent -->
+          <div class="balance ng-scope" ng-if="isAgent">
+            <div class="status">
+              <dl class="status-list">
+                <dt class="ng-binding">Balance Down:</dt>
+                <dd ng-class="{'-negative': cashBalance < 0, '-positive': cashBalance >= 0}" class="ng-binding -positive"
+                  >42,015.15</dd>
+                <dt class="ng-binding">Balance Up:</dt>
+                <dd ng-class="{'-negative': totalBalance < 0, '-positive': totalBalance >= 0}" class="ng-binding -negative"
+                  >-41,303.23</dd>
+                <dt class="ng-binding">Net Exposure:</dt>
+                <dd ng-class="{'-negative': actualNetExposure < 0, '-positive': actualNetExposure >= 0}" class="ng-binding -positive">0.00</dd>
+                <dt class="ng-binding">Available Credit:</dt>
+                <dd class="ng-binding">1,700.00</dd>
+              </dl>
+              <div class="agency-settings">
+                <!-- ngIf: isPtAvailable -->
+                <div class="position-settings-wrapper ng-scope" ng-if="isPtAvailable">
+                  <label class="toggle-label ng-scope" translate="">Position Taking:</label>
+                  <div class="toggle-wrap _clearfix" ng-class="{'one-click-active': oneClickSettings.active === 'true'}">
+                        
+                  </div>
+                </div><!-- end ngIf: isPtAvailable -->
+              </div>
+            </div>
+          </div><!-- end ngIf: isAgent -->
+          <!-- ngIf: isCompanyApp -->
+        </div>
+    
+    </div>

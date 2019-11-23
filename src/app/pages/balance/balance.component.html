@@ -1,0 +1,56 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+   
+        <!-- Content Header (Page header) -->
+        <app-pageheader></app-pageheader>
+        
+      
+        <!-- Main content -->
+        <section class="apl-section">
+          <!-- ngView: -->
+          <div class="content balance">
+            <!-- ngIf: vm.showTitle -->
+            <div class="header _clearfix ng-scope" ng-if="vm.showTitle">
+              <h1 class="ng-binding">Balance Information</h1>
+            </div><!-- end ngIf: vm.showTitle -->
+      
+            <section>
+              <table class="generic apl-table apl-table-striped apl-table-hover _auto-width">
+                <tbody>
+                  <tr>
+                    <th class="ng-binding">Net Exposure</th>
+                    <td class="numeric ng-binding -positive" ng-class="{'-negative': vm.accountInfo.actualNetExposure < 0, '-positive': vm.accountInfo.actualNetExposure >= 0}"
+                      style="">0.00</td>
+                  </tr>
+                  <tr>
+                    <th class="ng-binding">Balance Down</th>
+                    <td class="numeric ng-binding -positive" ng-class="{'-negative': vm.accountInfo.cashBalance < 0, '-positive': vm.accountInfo.cashBalance >= 0}"
+                      style="">42,095.15</td>
+                  </tr>
+                  <tr>
+                    <th class="ng-binding">Balance Up</th>
+                    <td class="numeric ng-binding -negative" ng-class="{'-negative': vm.accountInfo.totalBalance < 0, '-positive': vm.accountInfo.totalBalance >= 0}"
+                      style="">-41,383.23</td>
+                  </tr>
+                  <tr>
+                    <th class="ng-binding">Credit Limit</th>
+                    <td class="numeric ng-binding"> 50,000.00</td>
+                  </tr>
+                  <tr>
+                    <th class="ng-binding">Available Credit</th>
+                    <td class="numeric ng-binding"> 1,700.00</td>
+                  </tr>
+                  <tr class="-qa-total-downline">
+                    <th class="ng-binding">Total credit given to Members</th>
+                    <td class="numeric ng-binding"> 48,300.00</td>
+                  </tr>
+                  <!-- ngIf: vm.accountInfo.totalMACredit != null -->
+                  <!-- ngIf: vm.accountInfo.totalAgentCredit != null -->
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->

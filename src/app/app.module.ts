@@ -18,6 +18,13 @@ import { UserdisplayComponent } from './pages/userdisplay/userdisplay.component'
 import { PositionTakingComponent } from './pages/position-taking/position-taking.component';
 import { UserlistComponent } from './pages/userlist/userlist.component';
 import { AdduserComponent } from './pages/adduser/adduser.component';
+import { PageheaderComponent } from './pages/pageheader/pageheader.component';
+import { MemberdetailsComponent } from './pages/memberdetails/memberdetails.component';
+import { TransferComponent } from './pages/transfer/transfer.component';
+import { NetexposureComponent } from './pages/netexposure/netexposure.component';
+import { BettickerComponent } from './pages/betticker/betticker.component';
+import { AccountstatementComponent } from './pages/accountstatement/accountstatement.component';
+import { BalanceComponent } from './pages/balance/balance.component';
 
 
 @NgModule({
@@ -30,7 +37,14 @@ import { AdduserComponent } from './pages/adduser/adduser.component';
     UserdisplayComponent,
     PositionTakingComponent,
     UserlistComponent,
-    AdduserComponent
+    AdduserComponent,
+    PageheaderComponent,
+    MemberdetailsComponent,
+    TransferComponent,
+    NetexposureComponent,
+    BettickerComponent,
+    AccountstatementComponent,
+    BalanceComponent
   ],
   imports: [
     BrowserModule,

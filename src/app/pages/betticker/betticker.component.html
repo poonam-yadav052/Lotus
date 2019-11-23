@@ -1,0 +1,467 @@
+<div class="content-wrapper" >
+   
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          
+           <app-pageheader></app-pageheader>
+        </section>
+        <div class="row">
+           <div class="col-md-12">{{uploadfileresult}}</div>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+           <div class="row">
+              <!-- right column -->
+              <div class="col-md-12">
+                 <!-- Horizontal Form -->
+     
+                 <div class="box">
+     
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                       <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                          <div class="row">
+                             <div class="col-xs-6 col-md-4">
+                                <div class="dataTables_length" id="example1_length">
+                                   <label>
+                                      Show entries
+                                      <select name="example1_length" [(ngModel)]="itemsPerPage" aria-controls="example1"
+                                         class="form-control input-sm">
+                                         <option value="10">10</option>
+                                         <option value="25">25</option>
+                                         <option value="50">50</option>
+                                         <option value="100">100</option>
+                                      </select>
+     
+                                   </label>
+                                </div>
+                             </div>
+                             <div class="col-xs-6 col-md-4">
+                                <div class="form-group mb-sm-10">
+                                   <div id="example1_filter" class="dataTables_filter"><label>Search:&nbsp;
+                                         <input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+                                            autocomplete="off" placeholder="Search"></label></div>
+                                </div>
+                             </div>
+                             <div class="col-xs-12 col-md-4   ">
+                                
+                                <div class=" mb-sm-10 pull-md-right pull-md-right pull-sm-none">
+                                   <button class="btn btn-success " title="New Member" (click)="addnewmember()">New Member</button>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-small btn-success " title="Export to excel" (click)="exportAsXLSX()"><i
+                                         class="fa fa-file-excel-o"></i></button>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="row" style="margin:0;">
+                             <div class=" table-responsive">
+                                <table id="example1" class="table  table-striped dataTable" role="grid"
+                                   aria-describedby="example1_info">
+                                   <thead>
+                                      <tr role="row">
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Member</th>
+                                         <th class="sorting_asc" tabindex="0" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"
+                                            style="width: 182px;">Event</th>
+                                         <th class="sorting" tabindex="0" style="min-width:120px;">Market</th>
+                                         <th class="sorting" tabindex="0" style="width: 199px;"> Selection</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Odds req.</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Ave. matched</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Matched</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Unmatched</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Profit/Liability</th>
+                                         <th class="sorting" tabindex="0" style="width: 156px;">Last updated</th>
+                                         
+                                      </tr>
+                                   </thead>
+                                   <tbody>
+                                      <tr *ngFor="let row of members | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"
+                                         role="row" class="vs-repeat-repeated-element ng-scope odd">
+     
+                                         <!--<td (click)="openModel(memberdetails,1,0)" class="sorting_1">{{row.loginName == 'NULL' ? '':row.loginName}}</td>
+                                         <td (click)="openModel(memberdetails,1,0)">{{row.userName == 'NULL' ? '':row.userName}}</td>
+                                         <td>{{row.downline == 'NULL' ? '':row.downline}}</td>
+                                         <td>{{row.bettingStatus == 'NULL' ? '':row.bettingStatus}}<i class="fa fa-unlock" aria-hidden="true"></i></td>
+                                         <td>{{row.status == 'NULL' ? '':row.status}}</td>
+                                         <td><a routerLink="/memberdetails">{{row.details == 'NULL' ? '':row.details}}<i class="fa fa-eye fa-white" aria-hidden="true"></i></a></td>
+                                         <td>{{row.netexposure == 'NULL' ? '':row.netexposure}}</td>
+                                         <td>{{row.take == 'NULL' ? '':row.take}}</td>
+                                         <td>{{row.give == 'NULL' ? '':row.give}}</td>
+                                         <td>{{row.creditLimit == 'NULL' ? '':row.creditLimit}}</td>-->
+                                         <td class="ng-binding">developer</td>
+            <td>
+              <span class="event-name text-ellipsis">
+                <span date-string="order.eventName" timestamp="order.marketTime" class="ng-binding ng-isolate-scope">New Zealand v England (1st Test)</span>
+              </span>
+            </td>
+            <td class="ng-binding">Match Odds</td>
+            <td ng-class="order.sideTypeClass" class="lay"><span class="selection-name text-ellipsis ng-binding" title="The Draw">The Draw</span></td>
+            <td class="text-right ng-binding">2.52</td>
+            <td class="text-right ng-binding">2.52</td>
+            <td class="text-right ng-binding">150</td>
+            <td class="text-right ng-binding">0</td>
+            <td class="text-right ng-binding -negative" ng-class="order.profitLiabilityStyles">-228</td>
+            <td>
+              <time timestamp="order.lastUpdatedDate" type="time" class="ng-binding ng-isolate-scope">10:07:40</time>
+            </td>
+                                         
+     
+                                      </tr>
+                                   </tbody>
+                                </table>
+                             </div>
+                          </div>
+                          <div class="row">
+                             <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing
+                                   {{(itemsPerPage < members.length ? itemsPerPage : members.length)}} of {{members.length}}
+                                      entries</div> </div> <div class="col-sm-7">
+                                      <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                         <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                      </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <!-- /.box-body -->
+     
+     
+                    </div>
+     
+                    <!-- /.box -->
+                 </div>
+                 <!--/.col (right) -->
+              </div>
+              <!-- /.row -->
+        </section>
+        <!-- /.content -->
+     </div>
+     
+     
+     <ng-template #memberdetails>
+             <div class="modal-header">
+                 <h4 class="modal-title pull-left">Stage Details</h4>
+                 <button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+     <form novalidate="" ng-submit="submit()" class="apl-form-stacked apl-form ng-pristine ng-valid ng-scope ng-isolate-scope ng-valid-maxlength" ng-transclude="" ng-if="vm.formReady" enabled="vm.submitEnabled" callback="vm.submit" style="">
+           <section class="form-section-wrap user-information-form ng-scope" id="ngdialog2-aria-describedby">
+             <div class="apl-section-inner">
+               <legend class="ng-binding">Information</legend>
+               <div dl-user-general-info="" model="vm.userForm" user-code="vm.userCode" new-user="false" statuses="vm.statuses" pass-verify="vm.passVerify" errors="vm.errors" class="qa-user-general-info ng-isolate-scope" full-form="true">
+         <div class="apl-form-row">
+           <label class="apl-form-label ng-binding">Username</label>
+           <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" style="">L9021409M0E</span><!-- end ngIf: !isNewUser -->
+           <!-- ngIf: isNewUser -->
+         </div>
+         <div class="apl-form-row">
+           <label class="apl-form-label ng-binding">Login Name</label>
+           <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" style="">developer</span><!-- end ngIf: !isNewUser -->
+           <!-- ngIf: isNewUser -->
+         </div>
+         <div class="apl-form-row">
+           <label class="apl-form-label ng-binding">Password</label>
+           <input type="password" autocomplete="off" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" ng-disabled="disabled" tooltips="" tooltip-content="" tooltip-show-trigger="void" tooltip-hide-trigger="void" tooltip-visible="false" class="qa-password -full-width ng-isolate-scope ng-pristine ng-untouched ng-valid ng-scope ng-empty" tabindex="13" style="">
+         </div>
+         <div class="apl-form-row">
+           <label class="apl-form-label ng-binding">Repeat Password</label>
+           <input type="password" autocomplete="off" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" ng-disabled="disabled" tooltips="" tooltip-content="" tooltip-show-trigger="void" tooltip-hide-trigger="void" tooltip-visible="false" class="qa-password-verify -full-width ng-isolate-scope ng-pristine ng-untouched ng-valid ng-scope ng-empty" tabindex="14" style="">
+         </div>
+         <div class="apl-form-row">
+           <label class="apl-form-label ng-binding">Status</label>
+           <!-- ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses" style="">
+             <input type="radio" ng-model="model.status" ng-value="item" class="qa-active-status" tabindex="-1" name="893" value="ACTIVE"> ACTIVE
+           </label><!-- end ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses">
+             <input type="radio" ng-model="model.status" ng-value="item" class="qa-inactive-status" tabindex="-1" name="895" value="INACTIVE"> INACTIVE
+           </label><!-- end ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses">
+             <input type="radio" ng-model="model.status" ng-value="item" class="qa-suspended-status" tabindex="-1" name="897" value="SUSPENDED"> SUSPENDED
+           </label><!-- end ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses">
+             <input type="radio" ng-model="model.status" ng-value="item" class="qa-closed-status" tabindex="-1" name="899" value="CLOSED"> CLOSED
+           </label><!-- end ngRepeat: item in statuses -->
+         </div>
+       </div>
+             </div>
+           </section>
+           <section class="form-section-wrap user-credit-form ng-scope">
+             <div class="apl-section-inner">
+               <legend class="ng-binding">Credit</legend>
+               <div dl-user-credit-info="" model="vm.creditForm" new-user="false" level="vm.userForm.level" errors="vm.errors" class="qa-user-credit-info ng-isolate-scope" full-form="true">
+         <!-- ngIf: isSMA -->
+         <div class="column-container">
+           <div class="column">
+             <div class="apl-form-row">
+               <label class="apl-form-label ng-binding">Credit Limit</label>
+               <input type="text" step="1" class="qa-creditlimit _pull-left apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="31" min="0" style="">
+               <span class="limit-info _pull-left ng-binding">
+                 &gt;= 0
+                 <br>
+                 &lt;= 788
+               </span>
+             </div>
+             <!-- ngIf: fullForm --><div ng-if="fullForm" class="ng-scope" style="">
+               <!-- ngIf: level !== 'Agent' && level !== 'Member' -->
+               <!-- ngIf: level !== 'Member' -->
+             </div><!-- end ngIf: fullForm -->
+           </div>
+           <div class="column" ng-hide="!fullForm">
+             <div class="apl-form-row second-column">
+               <label class="apl-form-label ng-binding">Payment Threshold</label>
+               <input type="text" step="1" class="qa-paymentthreshold _pull-left apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="34" min="0" style="">
+             </div>
+           </div>
+         </div>
+       </div>
+             </div>
+           </section>
+           <section class="form-section-wrap user-bet-settings-form ng-scope">
+             <div class="apl-section-inner">
+               <legend class="ng-binding">Bet Settings</legend>
+               <table class="-data apl-table _auto-width">
+                 <tbody dl-user-bet-settings="" model="vm.betForm" new-user="false" level="vm.userForm.level" errors="vm.errors" class="qa-user-bet-info ng-isolate-scope">
+         <tr>
+           <td colspan="2">
+             <label for="bet-settings-default-sport" class="ng-binding">
+               <input type="checkbox" id="bet-settings-default-sport" value="1" ng-change="betChange()" ng-model="switch.singleSportBets" tabindex="-1" class="ng-pristine ng-untouched ng-valid ng-empty" style="">&nbsp;
+               Same for all sports
+             </label>
+           </td>
+         </tr>
+         <tr>
+           <th></th>
+           <!-- ngRepeat: setting in betLimits --><th ng-repeat="setting in betLimits" class="ng-binding ng-scope" style="">
+             Min Bet
+           </th><!-- end ngRepeat: setting in betLimits --><th ng-repeat="setting in betLimits" class="ng-binding ng-scope">
+             Max Bet
+           </th><!-- end ngRepeat: setting in betLimits --><th ng-repeat="setting in betLimits" class="ng-binding ng-scope">
+             Max Market
+           </th><!-- end ngRepeat: setting in betLimits -->
+         </tr>
+         <!-- ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values" style="">
+           <td class="ng-binding">
+             Cricket
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Fancy Markets
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Exch Runs
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Football
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Tennis
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Horse Racing
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Greyhound Racing
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}" class="ng-scope no-extra-values">
+           <td class="ng-binding">
+             Casino
+           </td>
+           <!-- ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" min="50">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits --><td ng-repeat="setting in betLimits" class="ng-scope">
+             <input type="text" step="1" class="-short bet-setting-value apl-input-number composed ng-isolate-scope" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="51" disabled="disabled">
+           </td><!-- end ngRepeat: setting in betLimits -->
+         </tr><!-- end ngRepeat: item in model -->
+       </tbody>
+               </table>
+             </div>
+           </section>
+           <section class="form-section-wrap user-position-taking-form ng-scope">
+             <div class="apl-section-inner">
+               <legend class="ng-binding">Position Taking</legend>
+               <table class="-data apl-table _auto-width">
+                 <tbody dl-user-position-settings="" model="vm.positionForm" new-user="false" level="vm.userForm.level" errors="vm.errors" class="qa-user-position-info ng-isolate-scope" full-form="true">
+         <!-- ngIf: fullForm --><tr ng-if="fullForm" class="ng-scope" style="">
+           <td colspan="3">
+             <label for="position-settings-default-sport" class="ng-binding">
+               <input type="checkbox" id="position-settings-default-sport" value="1" ng-change="positionChange()" ng-model="switch.singleSportPosition" tabindex="-1" class="ng-pristine ng-untouched ng-valid ng-empty">&nbsp;
+               Same for all sports
+             </label>
+           </td>
+         </tr><!-- end ngIf: fullForm -->
+         <tr>
+           <!-- ngIf: fullForm --><th ng-if="fullForm" class="ng-binding ng-scope" style="">Sport</th><!-- end ngIf: fullForm -->
+           <th class="ng-binding">Agent Position (%)</th>
+           <!-- ngIf: level !== 'Member' -->
+         </tr>
+         <!-- ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope" style="">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Cricket
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 --><span ng-switch-when="0" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="61" min="0">
+               </span><!-- end ngSwitchWhen: -->
+               <!-- ngSwitchDefault: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Football
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 -->
+               <!-- ngSwitchDefault: --><span ng-switch-default="" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="62" min="0">
+               </span><!-- end ngSwitchWhen: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Tennis
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 -->
+               <!-- ngSwitchDefault: --><span ng-switch-default="" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="62" min="0">
+               </span><!-- end ngSwitchWhen: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Horse Racing
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 -->
+               <!-- ngSwitchDefault: --><span ng-switch-default="" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="62" min="0">
+               </span><!-- end ngSwitchWhen: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Greyhound Racing
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 -->
+               <!-- ngSwitchDefault: --><span ng-switch-default="" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="62" min="0">
+               </span><!-- end ngSwitchWhen: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model --><tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope">
+           <!-- ngIf: fullForm --><td ng-if="fullForm" class="ng-binding ng-scope">
+             Casino
+           </td><!-- end ngIf: fullForm -->
+           <td>
+             <span ng-switch="$index">
+               <!-- ngSwitchWhen: 0 -->
+               <!-- ngSwitchDefault: --><span ng-switch-default="" class="ng-scope">
+                 <input type="text" step="1" class="-percents qa-parentPosition apl-input-number composed ng-isolate-scope ng-not-empty" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="false" tabindex="62" min="0">
+               </span><!-- end ngSwitchWhen: -->
+             </span>
+       
+             <!-- ngIf: level === 'Member' --><span ng-if="level === 'Member'" class="ng-binding ng-scope">&lt;= 0</span><!-- end ngIf: level === 'Member' -->
+             <!-- ngIf: level !== 'Member' -->
+           </td>
+           <!-- ngIf: level !== 'Member' -->
+         </tr><!-- end ngRepeat: item in model -->
+       </tbody>
+               </table>
+             </div>
+           </section>
+           <section class="form-section-wrap user-notes-form ng-scope">
+             <div class="apl-section-inner">
+               <legend class="ng-binding">Notes</legend>
+               <textarea maxlength="1000" ng-model="vm.userForm.notes" tabindex="70" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" style=""></textarea>
+             </div>
+           </section>
+           <div class="form-controls ng-scope">
+             <button type="button" class="apl-btn apl-btn-large apl-btn-link qa-cancel-button ng-binding" data-always-enabled="true" ng-click="vm.return()" tabindex="72">
+               Cancel
+             </button>
+             <!-- ngIf: !vm.isEditDisabled --><button type="submit" class="-action qa-submit-button apl-btn apl-btn-large apl-btn-update ng-binding ng-scope" ng-if="!vm.isEditDisabled" tabindex="71" style="">
+               Save
+             </button><!-- end ngIf: !vm.isEditDisabled -->
+           </div>
+         </form>
+        </div>
+     </ng-template>

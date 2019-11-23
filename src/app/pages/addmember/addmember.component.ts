@@ -68,10 +68,9 @@ export class AddmemberComponent implements OnInit {
     let data: any = Object.assign(this.userForm.value);
     console.log("IN"+JSON.stringify(this.userdata));
     this.spinner.show();
-    data.added_by_roleId=1;//this.userrole;
+    data.added_by_roleId=this.userrole;
     data.addedBy_Creditlimit=this.creditlimit
-    data.userRole=this.userrole+1;
-    data.userRole=this.userrole+1;
+    data.userRole=5;
     data.addedBy=this.userdata["ID"]
     console.log("IN"+JSON.stringify(data));
     this.service.addmember(data).subscribe(
