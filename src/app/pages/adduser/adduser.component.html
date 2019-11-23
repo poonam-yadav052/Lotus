@@ -2,11 +2,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           
-           <ol class="breadcrumb">
-              <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li class="active">New User</li>
-           </ol>
-        </section>
+                <app-pageheader></app-pageheader>
+             </section>
         <div class="row">
            <div class="col-md-12">{{uploadfileresult}}</div>
         </div>
@@ -19,19 +16,23 @@
                               <hr/>
                               <div class="col-md-12">
                               <div class="form-group col-md-6" [ngClass]=""> <!-- Last Name -->
-                                <label for="username" class="control-label userFormLable">User Name</label>
-                                <input type="text" formControlName="username" class="form-control" id="username" name="username" placeholder="">
-                                <p *ngIf="" id="login_name_error" class="help-block">Invalid user name.</p>
+                                <label for="loginName" class="control-label userFormLable">User Name</label>
+                                <input type="text" formControlName="loginName" class="form-control" id="loginName" name="loginName" placeholder="">
+                                <div *ngIf="submitted && f.loginName.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.loginName.errors.required">Please Provide Login Name</div>
+                                 </div>
                               </div>
                 
                               <div class="form-group col-md-6" [ngClass]=""> <!-- Password -->
-                                <label for="password" class="control-label userFormLable">Status</label>
+                                <label for="status" class="control-label userFormLable">Status</label>
                                 <select name="status" id="status" formControlName="status">
                                     <option value=""></option>
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
-                                <p *ngIf="" id="password_error" class="help-block">Invalid password.</p>
+                                <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                                    <div class="text-danger" *ngIf="f.status.errors.required">Please Select Status</div>
+                                 </div>
                               </div>
                             </div>
 
@@ -39,27 +40,35 @@
                                     <div class="form-group col-md-6" [ngClass]=""> <!-- Last Name -->
                                       <label for="last_name" class="control-label userFormLable">Password</label>
                                       <input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="">
-                                      <p *ngIf="" id="login_name_error" class="help-block">Invalid Password.</p>
+                                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                          <div class="text-danger" *ngIf="f.password.errors.required">Please Enter Password</div>
+                                       </div>
                                     </div>
                       
                                     <div class="form-group col-md-6" [ngClass]=""> <!-- Password -->
                                       <label for="password" class="control-label userFormLable">Reset Password</label>
                                       <input type="password" formControlName="resetpassword"  class="form-control" id="resetpassword" name="resetpassword" placeholder="">
-                                      <p *ngIf="" id="password_error" class="help-block">Invalid password.</p>
+                                      <div *ngIf="submitted && f.resetpassword.errors" class="invalid-feedback">
+                                          <div class="text-danger" *ngIf="f.resetpassword.errors.required">Please Enter Reset Password</div>
+                                       </div>
                                     </div>
                                   </div>
 
                                   <div class="col-md-12">
                                         <div class="form-group col-md-6" [ngClass]=""> <!-- Last Name -->
-                                          <label for="last_name" class="control-label userFormLable">First Name</label>
-                                          <input type="text" formControlName="firstname" class="form-control" id="firstname" name="firstname" placeholder="">
-                                          <p *ngIf="" id="login_name_error" class="help-block">Invalid first name.</p>
+                                          <label for="firstName" class="control-label userFormLable">First Name</label>
+                                          <input type="text" formControlName="firstName" class="form-control" id="firstName" name="firstName" placeholder="">
+                                          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                              <div class="text-danger" *ngIf="f.firstName.errors.required">Please Enter First Name</div>
+                                           </div>
                                         </div>
                           
                                         <div class="form-group col-md-6" [ngClass]=""> <!-- Password -->
-                                          <label for="password" class="control-label userFormLable">Last Name</label>
-                                          <input type="text" formControlName="lastname"  class="form-control" id="lastname" name="lastname" placeholder="">
-                                          <p *ngIf="" id="password_error" class="help-block">Invalid last name.</p>
+                                          <label for="lastName" class="control-label userFormLable">Last Name</label>
+                                          <input type="text" formControlName="lastName"  class="form-control" id="lastName" name="lastName" placeholder="">
+                                          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                              <div class="text-danger" *ngIf="f.lastName.errors.required">Please Enter Last Name</div>
+                                           </div>
                                         </div>
                                       </div>
                            

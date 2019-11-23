@@ -27,15 +27,48 @@ export class AdduserComponent implements OnInit {
     this.creditlimit=this.userdata["creditLimit"]
     this.userrole=this.userdata["userRole"]
     this.userForm = this.formBuilder.group({
-  		username: ['', Validators.required],
+  		loginName: ['', Validators.required],
       status: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-      repeatPassword:['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
+      password: ['', [Validators.required]],
+      resetpassword:['', [Validators.required]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
 
       
     });
+  }
+
+  get f() {return this.userForm.controls}
+
+  onSubmit()
+  {
+    console.log("submit")
+    this.submitted = true;
+    // stop here if form is invalid
+    console.log(this.userForm.invalid)
+    if (this.userForm.invalid) {
+        return;
+    }
+    let data: any = Object.assign(this.userForm.value);
+    console.log(data)
+    this.spinner.show();
+    data.createdBy=this.userrole;
+    data.userRole=5;
+    this.service.adduser(data).subscribe(
+    data=>{
+    this.spinner.hide();
+    console.log(data);
+    let path = '/userlist';
+    this.router.navigate([path]);
+    this.registered = true;
+    },
+    error=>{
+    console.log(error)
+    this.spinner.hide();
+    }
+
+    )
+    this.registered = true;   
   }
 
 }
