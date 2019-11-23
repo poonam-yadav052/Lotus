@@ -16,6 +16,47 @@ html ,body{
     letter-spacing: 0;
     box-sizing: border-box;
 }
+.modal-body-transfer{
+    background: #26183e;
+    color: #fff!important;
+    padding: 20px;
+   
+}
+.transferModelBtn{
+text-align: right;
+}
+.transferHeader{
+    color: #fff;
+    border-bottom:none;
+}
+.qa-transferamount{
+    margin-bottom: 10px;
+}
+.textAreaTrasfer{
+    width: 100%;
+    height: auto!important;
+}
+.cancelBtn{
+    min-height: 40px;
+    padding: 0 15px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #3cd247;
+    border: none;
+    background-color: transparent;
+}
+.submitBtn{
+    min-height: 40px;
+    padding: 0 15px;
+    line-height: 40px;
+    font-size: 16px;
+    border: none;
+    background-color: #3cd247;
+
+}
+.modal-body-transfer>.apl-form-controls{
+background-color: #3cd247;
+}
 .apl-icon-sport-cricket:before {
     content: '\a003';
 }
