@@ -49,5 +49,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, 
-  MemberListComponent,
+  MemberListComponent,TransferComponent,BettickerComponent,NetexposureComponent,AccountstatementComponent,
   FooterComponent,HeaderComponent,SidebarComponent,HomeComponent,PositionTakingComponent,UserlistComponent,AdduserComponent]

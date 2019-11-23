@@ -3,14 +3,13 @@ var md5 = require('md5');
 var Matiere = {
     getusers: function(Users,callback)
     {
-        return db.query('SELECT lt_users.ID,loginName,userName,(select count(*) from lt_users as u where u.createdBy=lt_users.ID) as downline,"" as bettingStatus,status,"" as netexposure,take,give,(select creditLimit from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as creditLimit ,`sport` as posSport, lt_positiontaking.`cricket` as posCricket, lt_positiontaking.`football` as posFootball, lt_positiontaking.`tennis` as posTennis, lt_positiontaking.`horseRacing` as posHorseRacing, lt_positiontaking.`greyhoundRacing` as posGreyhoundRacing, lt_positiontaking.`casino` as posCasino,createdDate,(select loginDate from lt_userLoginHistory where lt_users.ID=lt_userLoginHistory.userId order by loginDate desc limit 1) as lastLogin,userRole,notes,roleName,createdBy, lt_betsettings.cricket,lt_betsettings.fancyMarkets,lt_betsettings.exchRuns,lt_betsettings.football,lt_betsettings.Tennis,lt_betsettings.horseRacing,lt_betsettings.greyhoundRacing,lt_betsettings.casino, (select paymentThreshould from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as paymentThreshould from lt_users INNER JOIN lt_userroles ON lt_userroles.ID=lt_users.userRole left join lt_betsettings ON lt_betsettings.userId=lt_users.ID         left join lt_positiontaking ON lt_positiontaking.userId=lt_users.ID  where lt_users.createdBy='+Users.userId, callback);
+        return db.query('SELECT lt_users.ID,loginName,userName,(select count(*) from lt_users as u where u.createdBy=lt_users.ID) as downline,"" as bettingStatus,status,"" as netexposure,take,give,(select creditLimit from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as creditLimit ,`sport` as posSport, lt_positiontaking.`cricket` as posCricket, lt_positiontaking.`football` as posFootball, lt_positiontaking.`tennis` as posTennis, lt_positiontaking.`horseRacing` as posHorseRacing, lt_positiontaking.`greyhoundRacing` as posGreyhoundRacing, lt_positiontaking.`casino` as posCasino,createdDate,(select loginDate from lt_userLoginHistory where lt_users.ID=lt_userLoginHistory.userId order by loginDate desc limit 1) as lastLogin,userRole,notes,roleName,createdBy, lt_betsettings.cricket,lt_betsettings.fancyMarkets,lt_betsettings.exchRuns,lt_betsettings.football,lt_betsettings.Tennis,lt_betsettings.horseRacing,lt_betsettings.greyhoundRacing,lt_betsettings.casino, (select paymentThreshould from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as paymentThreshould from lt_users INNER JOIN lt_userroles ON lt_userroles.ID=lt_users.userRole left join lt_betsettings ON lt_betsettings.userId=lt_users.ID left join lt_positiontaking ON lt_positiontaking.userId=lt_users.ID  where lt_users.createdBy='+Users.userId, callback);
     },  
     getUserMax: function(callback)
     {
         return db.query('SELECT userName from lt_users order by ID desc limit 1', callback);
     },
-    createMember: function (Users, callback) {
-        console.log("createUser");
+    createMember: function (Users, callback) {        
         // username two input box value  
         userName1 = Users.userName1;
         userName2 = Users.userName2;
@@ -23,6 +22,7 @@ var Matiere = {
         return db.query('Insert into lt_users(userName,loginName, userRole, password, notes, status,createdDate,createdBy) values(?, ?,?,?,?,?,?, ?)',[userName, Users.loginName, Users.userRole, Users.password, Users.notes, Users.status,formatted,Users.addedBy],function(err, result) {
            // console.log("createUser 1");
             if(!err){
+                console.log("createUser");
                 //add credit limit
                 userId = result.insertId;
                 db.query('Insert into lt_creditlimit(userId,creditLimit) values(?, ?)',[userId,Users.creditLimit]);
@@ -36,10 +36,10 @@ var Matiere = {
                 db.query('INSERT INTO lt_betsettings(userId,cricket, fancyMarkets, exchRuns, football, Tennis, horseRacing, greyhoundRacing,casino) values(?, ?, ?, ?, ?, ?, ?, ?, ?)',[ userId, "", "", "", "", "", "", "", ""]);
                 
                 //add position taking
-                db.query('INSERT INTO lt_positiontaking(userId,sport, cricket, football, tennis, horseRacing, greyhoundRacing, casino) values(?, ?, ?, ?, ?, ?, ?, ?)',[ userId, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition],callback);
+                db.query('INSERT INTO lt_positiontaking(userId,sport, cricket, football, tennis, horseRacing, greyhoundRacing, casino) values(?, ?, ?, ?, ?, ?, ?, ?)',[userId, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition, Users.agentPosition],callback);
                 //return result;
             }else{
-                //console.log("createUser 2");
+                console.log(err);
                 //return error
                 return err;
             }          
@@ -83,11 +83,11 @@ var Matiere = {
     },
     login: function (Users, callback) {     
        // var password = md5(Users.password);  
-        return db.query('SELECT lt_users.ID,lt_users.userName,lt_users.loginName,lt_users.password,lt_users.notes,lt_users.status,lt_users.createdDate,(select loginDate from lt_userLoginHistory where lt_users.ID=lt_userLoginHistory.userId order by loginDate desc limit 1) as lastLogin, lt_betsettings.cricket,lt_betsettings.fancyMarkets,lt_betsettings.exchRuns,lt_betsettings.football,lt_betsettings.Tennis,lt_betsettings.horseRacing,lt_betsettings.greyhoundRacing,lt_betsettings.casino, `sport` as posSport, lt_positiontaking.`cricket` as posCricket, lt_positiontaking.`football` as posFootball, lt_positiontaking.`tennis` as posTennis, lt_positiontaking.`horseRacing` as posHorseRacing, lt_positiontaking.`greyhoundRacing` as posGreyhoundRacing, lt_positiontaking.`casino` as posCasino, (select creditLimit from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as creditLimit from lt_users left join lt_betsettings ON lt_betsettings.userId=lt_users.ID left join lt_positiontaking ON lt_positiontaking.userId=lt_users.ID where loginName="'+Users.userName+'" and password="'+Users.password+'"', callback);
+        return db.query('SELECT lt_users.ID,lt_users.userName,lt_users.userRole,lt_users.loginName,lt_users.password,lt_users.notes,lt_users.status,lt_users.createdDate,(select loginDate from lt_userLoginHistory where lt_users.ID=lt_userLoginHistory.userId order by loginDate desc limit 1) as lastLogin, lt_betsettings.cricket,lt_betsettings.fancyMarkets,lt_betsettings.exchRuns,lt_betsettings.football,lt_betsettings.Tennis,lt_betsettings.horseRacing,lt_betsettings.greyhoundRacing,lt_betsettings.casino, `sport` as posSport, lt_positiontaking.`cricket` as posCricket, lt_positiontaking.`football` as posFootball, lt_positiontaking.`tennis` as posTennis, lt_positiontaking.`horseRacing` as posHorseRacing, lt_positiontaking.`greyhoundRacing` as posGreyhoundRacing, lt_positiontaking.`casino` as posCasino, (select creditLimit from lt_creditlimit where lt_creditlimit.userId=lt_users.ID ORDER by `lt_creditlimit`.`createdDate` DESC LIMIT 1) as creditLimit from lt_users left join lt_betsettings ON lt_betsettings.userId=lt_users.ID left join lt_positiontaking ON lt_positiontaking.userId=lt_users.ID where loginName="'+Users.userName+'" and password="'+Users.password+'"', callback);
     },
     updateLastLogin: function (Users, callback) {     
         // var password = md5(Users.password);  
-        console.log("Users==="+JSON.stringify(Users));
+        console.log("Users update last login==="+JSON.stringify(Users));
         db.query('INSERT INTO `lt_userLoginHistory`(`userId`, `loginIp`) values(?, ?)',[Users.userId,Users.loginIp],callback); 
      },    
     getUserRoles: function(Users,callback)
@@ -149,7 +149,7 @@ var Matiere = {
         let creditLimit = Users.creditLimit - stake;
         db.query('Insert into lt_creditlimit(userId,creditLimit) values(?, ?)',[Users.userId,creditLimit]);
 
-        db.query('Insert into lt_betslip(odds, stake, liability, profit, event, marketId, userId, betConfirm, createdBy,oneClick,matchId) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[Users.odds,Users.stake,Users.liability,Users.profit,Users.event,Users.marketId,Users.userId,Users.betConfirm,Users.userId,Users.oneClick,Users.matchId],callback); 
+        db.query('Insert into lt_betslip(odds, stake, liability, profit, bettype, marketId, userId, betConfirm, createdBy,oneClick,matchId,inPlay) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[Users.odds,Users.stake,Users.liability,Users.profit,Users.betType,Users.marketId,Users.userId,Users.betConfirm,Users.userId,Users.oneClick,Users.matchId,Users.inPlay],callback); 
     },
     getuserTake: function(Users,callback)
     {
@@ -157,7 +157,7 @@ var Matiere = {
     },
     getBetSlip: function(Users,callback)
     {
-        db.query('Select lt_betslip.odds, lt_betslip.liability, profit, lt_betslip.event, lt_betslip.marketId, lt_betslip.userId, lt_betslip.betConfirm, lt_betslip.createdBy,stake,oneClick,createdDate from lt_betslip where lt_betslip.userId='+Users.userId,callback);      
+        db.query('Select lt_betslip.odds, lt_betslip.liability, profit, lt_betslip.bettype, inPlay, lt_betslip.marketId, lt_betslip.userId, lt_betslip.betConfirm, lt_betslip.createdBy,stake,oneClick,createdDate from lt_betslip where lt_betslip.userId='+Users.userId,callback);      
     },
     getAdminUsers: function(callback)
     {
@@ -171,6 +171,30 @@ var Matiere = {
     {
         db.query('Update `lt_users` SET  `firstName`="'+req_arr.firstName+'", `lastName`="'+req_arr.lastName+'",`password`="'+req_arr.password+'", `status`='+req_arr.status+' where ID='+req_arr.userId,callback);     
     },
+    getBetTicker: function(Users,callback)
+    {
+        //get Bet ticker of admin users of members
+        db.query('Select lt_users.loginName,"New Zealand v England" as event, "Match Odds" as market,"New Zealand" as selection, lt_betslip.odds,lt_betslip.odds as aveMatched,stake as matched,"" as unmatched, if(lt_betslip.betType="back", profit,lt_betslip.liability) as profitOrLiability,TIME(lt_betslip.createdDate) as lastUpdated from lt_betslip inner join lt_users on lt_users.ID=lt_betslip.userId where lt_users.createdBy='+Users.userId,callback);      
+    },
+    getBalance: function(Users,callback)
+    {
+        //get Bet ticker of admin users of members
+        //db.query('Select netExposure,balanceDon,balanceUp,creditLimit,availableCredit,totalCreditGivenToMember',callback);      
+    },
+    getMatchList: function(Users,callback)
+    {
+        //get Bet ticker of admin users of members
+        db.query('Select * from lt_matches where 1',callback);      
+    },
+    getPnLStatement: function(Users,callback)
+    {
+        //get Bet ticker of admin users of members
+        db.query('Select lt_users.loginName,lt_users.userName,lt_betslip.createdDate,"22 Runs" as selection,lt_betslip.betId, lt_betslip.inPlay,lt_betslip.oneClick,lt_betslip.betType,lt_betslip.odds,lt_betslip.stake,"LOST" as status,"-50" as memberinOrLoss,"50" as agentWinOrLoss from lt_betslip inner join lt_users on lt_users.ID=lt_betslip.userId where lt_users.createdBy='+Users.userId,callback);      
+    },
+    getCrditStatement: function(Users,callback)
+    {
+        //get Bet ticker of admin users of members
+        db.query('Select lt_betslip.createdDate,lt_users.userName,lt_users.loginName,SUM(odds) as amount,"288" as creditBalance from lt_betslip inner join lt_users on lt_users.ID=lt_betslip.userId where lt_users.createdBy='+Users.userId+' and lt_betslip.createdDate>=CURRENT_DATE() group by lt_betslip.userId',callback);      
+    },
 }
-
 module.exports = Matiere;

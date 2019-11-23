@@ -105,6 +105,7 @@ router.post('/saveMember/', function (req, res) {
             Matiere.checkCreditLimit(req.body,function(err1,result){
                 //console.log("result==="+JSON.stringify(result[0].creditLimit));
                 //console.log("req.body.creditLimit=="+(result[0].creditLimit)+"===="+parseInt(req.body.creditLimit));
+                if(result){
                 if(parseInt(result[0].creditLimit)>=parseInt(req.body.creditLimit)){
                     //console.log("INN===");
                     req.body.addedBy_Creditlimit = parseInt(result[0].creditLimit);
@@ -121,6 +122,10 @@ router.post('/saveMember/', function (req, res) {
                 }else{
                     res.json({messege:"Success",result:"credit_limit_not_available"});
                 }
+            }
+            else{
+                res.json({messege:"Success",result:"credit_limit_not_available"});
+            }
             }); 
         } 
     }     
@@ -182,7 +187,7 @@ router.post('/updateMember/', function (req, res) {
 //all logins
 router.post('/login/', function (req, res) {
     console.log("req update==="+JSON.stringify(req.body));
-    if(req.body.userName!="" && req.body.passord!=""){
+    if(req.body.userName!="" && req.body.password!=""){
         Matiere.login(req.body,function(err,rows){
             if(err)
             {
@@ -326,6 +331,75 @@ router.post('/addAdminUsers/', function (req, res) {
 
 router.post('/updateAdminUsers/', function (req, res) { 
     Matiere.updateAdminUsers(req.body,function(err,rows){
+        if(err)
+        {
+            res.status(400).json({messege:"Fail",result:err});
+        }
+        else{               
+            res.json({messege:"Success",result:rows});               
+        }
+    });    
+});
+
+router.get('/getBetTicker/', function (req, res) {
+    Matiere.getBetTicker(req.query,function(err,rows){
+        if(err)
+        {
+            res.status(400).json({messege:"Fail",result:err});
+        }
+        else{               
+            res.json({messege:"Success",result:rows});               
+        }
+    });    
+});
+
+router.get('/getBalance/', function (req, res) {
+    const rows = [{
+        netExposure:"0.00",
+        balanceDon:"0.00",
+        balanceUp:"0.00",
+        creditLimit:"0.00",
+        availableCredit:"0.00",
+        totalCreditGivenToMember:"0.00"
+    }];
+    res.json({messege:"Success",result:rows}); 
+    // Matiere.getBalance(req.query,function(err,rows){
+    //     if(err)
+    //     {
+    //         res.status(400).json({messege:"Fail",result:err});
+    //     }
+    //     else{               
+    //         res.json({messege:"Success",result:rows});               
+    //     }
+    // });    
+});
+
+router.get('/getMatchList/', function (req, res) {
+    Matiere.getMatchList(req.query,function(err,rows){
+        if(err)
+        {
+            res.status(400).json({messege:"Fail",result:err});
+        }
+        else{               
+            res.json({messege:"Success",result:rows});               
+        }
+    });    
+});
+
+router.get('/getPnLStatement/', function (req, res) {
+    Matiere.getPnLStatement(req.query,function(err,rows){
+        if(err)
+        {
+            res.status(400).json({messege:"Fail",result:err});
+        }
+        else{               
+            res.json({messege:"Success",result:rows});               
+        }
+    });    
+});
+
+router.get('/getCrditStatement/', function (req, res) {
+    Matiere.getCrditStatement(req.query,function(err,rows){
         if(err)
         {
             res.status(400).json({messege:"Fail",result:err});
