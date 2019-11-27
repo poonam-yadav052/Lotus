@@ -125,7 +125,7 @@
   </div>
   <div class="modal-body">
     <form novalidate="" ng-submit="submit()" class="apl-form-stacked apl-form ng-pristine ng-valid ng-scope ng-isolate-scope ng-valid-maxlength"
-      ng-transclude="" ng-if="vm.formReady" enabled="vm.submitEnabled" callback="vm.submit" style="">
+      ng-transclude="" ng-if="vm.formReady" enabled="vm.submitEnabled" callback="vm.submit" >
       <section class="form-section-wrap user-information-form ng-scope" id="ngdialog2-aria-describedby">
         <div class="apl-section-inner">
           <legend class="ng-binding">Information</legend>
@@ -133,12 +133,12 @@
             pass-verify="vm.passVerify" errors="vm.errors" class="qa-user-general-info ng-isolate-scope" full-form="true">
             <div class="apl-form-row">
               <label class="apl-form-label ng-binding">Username</label>
-              <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" style="">L9021409M0E</span><!-- end ngIf: !isNewUser -->
+              <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" >L9021409M0E</span><!-- end ngIf: !isNewUser -->
               <!-- ngIf: isNewUser -->
             </div>
             <div class="apl-form-row">
               <label class="apl-form-label ng-binding">Login Name</label>
-              <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" style="">developer</span><!-- end ngIf: !isNewUser -->
+              <!-- ngIf: !isNewUser --><span ng-if="!isNewUser" class="ng-binding ng-scope" >developer</span><!-- end ngIf: !isNewUser -->
               <!-- ngIf: isNewUser -->
             </div>
             <div class="apl-form-row">
@@ -146,19 +146,19 @@
               <input type="password" autocomplete="off" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}"
                 ng-disabled="disabled" tooltips="" tooltip-content="" tooltip-show-trigger="void" tooltip-hide-trigger="void"
                 tooltip-visible="false" class="qa-password -full-width ng-isolate-scope ng-pristine ng-untouched ng-valid ng-scope ng-empty"
-                tabindex="13" style="">
+                tabindex="13" >
             </div>
             <div class="apl-form-row">
               <label class="apl-form-label ng-binding">Repeat Password</label>
               <input type="password" autocomplete="off" ng-model="value" ng-change="change()" ng-class="{'-error': hasError}"
                 ng-disabled="disabled" tooltips="" tooltip-content="" tooltip-show-trigger="void" tooltip-hide-trigger="void"
                 tooltip-visible="false" class="qa-password-verify -full-width ng-isolate-scope ng-pristine ng-untouched ng-valid ng-scope ng-empty"
-                tabindex="14" style="">
+                tabindex="14" >
             </div>
             <div class="apl-form-row">
               <label class="apl-form-label ng-binding">Status</label>
               <!-- ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses"
-                style="">
+                >
                 <input type="radio" ng-model="model.status" ng-value="item" class="qa-active-status" tabindex="-1" name="893"
                   value="ACTIVE"> ACTIVE
               </label><!-- end ngRepeat: item in statuses --><label class="option-wrap ng-binding ng-scope" ng-repeat="item in statuses">
@@ -188,7 +188,7 @@
                   <input type="text" step="1" class="qa-creditlimit _pull-left apl-input-number composed ng-isolate-scope ng-not-empty"
                     ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder=""
                     ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false"
-                    ng-keyup="keyup($event)" apl-simple="false" tabindex="31" min="0" style="">
+                    ng-keyup="keyup($event)" apl-simple="false" tabindex="31" min="0" >
                   <span class="limit-info _pull-left ng-binding">
                     &gt;= 0
                     <br>
@@ -196,7 +196,7 @@
                   </span>
                 </div>
                 <!-- ngIf: fullForm -->
-                <div ng-if="fullForm" class="ng-scope" style="">
+                <div ng-if="fullForm" class="ng-scope" >
                   <!-- ngIf: level !== 'Agent' && level !== 'Member' -->
                   <!-- ngIf: level !== 'Member' -->
                 </div><!-- end ngIf: fullForm -->
@@ -207,7 +207,7 @@
                   <input type="text" step="1" class="qa-paymentthreshold _pull-left apl-input-number composed ng-isolate-scope ng-not-empty"
                     ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder=""
                     ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false"
-                    ng-keyup="keyup($event)" apl-simple="false" tabindex="34" min="0" style="">
+                    ng-keyup="keyup($event)" apl-simple="false" tabindex="34" min="0" >
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@
                 <td colspan="2">
                   <label for="bet-settings-default-sport" class="ng-binding">
                     <input type="checkbox" id="bet-settings-default-sport" value="1" ng-change="betChange()" ng-model="switch.singleSportBets"
-                      tabindex="-1" class="ng-pristine ng-untouched ng-valid ng-empty" style="">&nbsp;
+                      tabindex="-1" class="ng-pristine ng-untouched ng-valid ng-empty" >&nbsp;
                     Same for all sports
                   </label>
                 </td>
@@ -232,7 +232,7 @@
               <tr>
                 <th></th>
                 <!-- ngRepeat: setting in betLimits -->
-                <th ng-repeat="setting in betLimits" class="ng-binding ng-scope" style="">
+                <th ng-repeat="setting in betLimits" class="ng-binding ng-scope" >
                   Min Bet
                 </th><!-- end ngRepeat: setting in betLimits -->
                 <th ng-repeat="setting in betLimits" class="ng-binding ng-scope">
@@ -244,7 +244,7 @@
               </tr>
               <!-- ngRepeat: item in model -->
               <tr ng-repeat="item in model" ng-init="rowIndex = $index" ng-class="{'no-extra-values': !isSMASettings}"
-                class="ng-scope no-extra-values" style="">
+                class="ng-scope no-extra-values" >
                 <td class="ng-binding">
                   Cricket
                 </td>
@@ -454,7 +454,7 @@
             <tbody dl-user-position-settings="" model="vm.positionForm" new-user="false" level="vm.userForm.level"
               errors="vm.errors" class="qa-user-position-info ng-isolate-scope" full-form="true">
               <!-- ngIf: fullForm -->
-              <tr ng-if="fullForm" class="ng-scope" style="">
+              <tr ng-if="fullForm" class="ng-scope" >
                 <td colspan="3">
                   <label for="position-settings-default-sport" class="ng-binding">
                     <input type="checkbox" id="position-settings-default-sport" value="1" ng-change="positionChange()"
@@ -465,12 +465,12 @@
               </tr><!-- end ngIf: fullForm -->
               <tr>
                 <!-- ngIf: fullForm -->
-                <th ng-if="fullForm" class="ng-binding ng-scope" style="">Sport</th><!-- end ngIf: fullForm -->
+                <th ng-if="fullForm" class="ng-binding ng-scope" >Sport</th><!-- end ngIf: fullForm -->
                 <th class="ng-binding">Agent Position (%)</th>
                 <!-- ngIf: level !== 'Member' -->
               </tr>
               <!-- ngRepeat: item in model -->
-              <tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope" style="">
+              <tr ng-repeat="item in model" ng-hide="!fullForm &amp;&amp; $index > 0" class="ng-scope" >
                 <!-- ngIf: fullForm -->
                 <td ng-if="fullForm" class="ng-binding ng-scope">
                   Cricket
@@ -604,7 +604,7 @@
         <div class="apl-section-inner">
           <legend class="ng-binding">Notes</legend>
           <textarea maxlength="1000" ng-model="vm.userForm.notes" tabindex="70" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
-            style=""></textarea>
+            ></textarea>
         </div>
       </section>
       <div class="form-controls ng-scope">
@@ -613,7 +613,7 @@
           Cancel
         </button>
         <!-- ngIf: !vm.isEditDisabled --><button type="submit" class="-action qa-submit-button apl-btn apl-btn-large apl-btn-update ng-binding ng-scope"
-          ng-if="!vm.isEditDisabled" tabindex="71" style="">
+          ng-if="!vm.isEditDisabled" tabindex="71" >
           Save
         </button><!-- end ngIf: !vm.isEditDisabled -->
       </div>
@@ -641,13 +641,13 @@
               <input type="text" step="1" class="qa-transferamount -full-size apl-form-large apl-input-number simple ng-isolate-scope ng-not-empty ng-touched"
                 ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder="" ng-disabled="disabled"
                 input-restrict="aplRestrict" tooltips="" tooltip-content="" tooltip-visible="false" ng-keyup="keyup($event)"
-                id="apl-form-transfer-amount" apl-simple="true" apl-auto-focus="" tabindex="1" min="0.01" style="">
+                id="apl-form-transfer-amount" apl-simple="true" apl-auto-focus="" tabindex="1" min="0.01" >
             </div>
           </div>
 
           <div class="apl-form-row">
             <textarea ng-model="vm.comment" class="textAreaTrasfer transfer__textarea ng-pristine ng-untouched ng-valid ng-empty" rows="5"
-              style=""></textarea>
+              ></textarea>
           </div>
 
           <div class="form-controls transferModelBtn">

@@ -71,28 +71,6 @@ export class MemberListComponent implements OnInit {
     this.modalref = this.modalservice.show(modalpoupid, { backdrop: 'static', keyboard: false });
   }
 
-  sendmail() {
-    this.spinner.show();
-    let ids = this.chkData;
-    console.log(ids);
-    this.service.sendmail(ids).subscribe(
-      data => {
-        //this.members=data; 
-        for (var index in ids) {
-          console.log(index)
-          //let index1=this.members.findIndex(o=>o.PaymentAdviceNoteHeaderID==index);
-          //console.log(index1);
-          //this.members[index1].MailSendFlag='Y';
-        }
-        this.chkData = [];
-        this.getUploadedData();
-        this.spinner.hide();
-      },
-      error => {
-        this.chkData = [];
-        this.spinner.hide();
-      })
-  }
 
 }
 class Members {
