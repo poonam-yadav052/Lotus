@@ -1,0 +1,18 @@
+.headerPage{
+    font-size: 1.3rem;
+}
+.headerPageBorder{
+    border-bottom: 1px #ccc solid;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+._ngcontent-gyy-c6{
+    border-bottom: 1px #ccc solid;
+}
+.content{
+    padding: 0px;
+}
+.memberListModal{
+    color: white;
+}

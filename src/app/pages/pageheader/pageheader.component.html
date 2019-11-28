@@ -2,7 +2,8 @@
         <marquee class="ng-isolate-scope"><!-- ngIf: vm.messages.length !== 0 --><section ng-if="vm.messages.length !== 0" class="marquee ng-scope" style="">
                 <div class="marquee__notifications">
                   <ul class="marquee__list marquee__list--scroll">
-                    <!-- ngRepeat: message in vm.messages track by $index --><li ng-repeat="message in vm.messages track by $index" class="marquee__list-item ng-binding ng-scope">The Mzansi Super League and T10 League are streaming on our fast live video service. Watch on mobile!</li><!-- end ngRepeat: message in vm.messages track by $index -->
+                    <li ng-repeat="message in vm.messages track by $index" class="marquee__list-item ng-binding ng-scope">
+                      The Mzansi Super League and T10 League are streaming on our fast live video service. Watch on mobile!</li>
                   </ul>
                 </div>
               </section><!-- end ngIf: vm.messages.length !== 0 --></marquee>

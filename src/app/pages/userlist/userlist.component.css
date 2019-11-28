@@ -1,0 +1,28 @@
+.memberListModal{
+    color: white;
+}
+.headerPage{
+    font-size: 1.5rem;
+}
+
+.ng-isolate-scope {
+    margin-top: 0px!important;
+    margin-bottom: -3px!important;
+}
+.headerPageBorder{
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px #ccc solid;
+}
+.content{
+    padding: 0px;
+}
+.btn-success-createUser{
+    background-color: #8e1e98;
+    color: #FFFFFF;
+    border-bottom-color: #66166d;
+    border-right-color: #66166d;
+    cursor: pointer;
+    height: 35px;
+}

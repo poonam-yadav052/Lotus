@@ -16,14 +16,18 @@ html ,body{
     letter-spacing: 0;
     box-sizing: border-box;
 }
+
+.close{
+    background-color: white;
+}
 .modal-dialog{
     width: 800px;
-    max-width: 80%;
+    max-width: 87%;
 }
-.ng-isolate-scope{
-    margin-top: 10px;
-    margin-bottom: -6px
+select,input{
+    color: black!important;
 }
+
 .modal-body-transfer{
     background: #26183e!important;
     color: #fff!important;
@@ -31,7 +35,7 @@ html ,body{
    
 }
 .modal-content{
-    background: #26183e00!important;
+    background: transparent!important;
 }
 .legend{
     display: block;
@@ -46,7 +50,7 @@ html ,body{
 }
 .apl-section-inner{
     margin-bottom: 18px;
-    background-color: #27082a;
+    background-color: #26183e;
 }
 .transferModelBtn{
 text-align: right;
