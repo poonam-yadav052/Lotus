@@ -1,85 +1,344 @@
-<div class="content-wrapper" >
-   
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          
-           <app-pageheader></app-pageheader>
-        </section>
-        <div class="row">
-           <div class="col-md-12">{{uploadfileresult}}</div>
-        </div>
-        <!-- Main content -->
-        <section class="content">
-<ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+<div class="content-wrapper">
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
+    <app-pageheader></app-pageheader>
+  </section>
+  <div class="row">
+    <div class="col-md-12">{{uploadfileresult}}</div>
+  </div>
+
+  <div class="downline-reports ng-scope">
+    <div class="detail-header ng-binding">
+      <a href="" ng-click="vm.navigateBack();" class="back-link ng-binding">Downline Listing</a> > {{userName}}
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">Activity</a>
+          <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home"
+            role="tab" aria-controls="custom-content-below-home" aria-selected="true">Activity</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Bet List</a>
+          <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile"
+            role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Bet List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Betting P&amp;L</a>
+          <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages"
+            role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Betting P&amp;L</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Account Statement</a>
+          <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings"
+            role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Account Statement</a>
         </li>
         <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Transfer Statement</a>
-              </li>
-              <li class="nav-item">
-                    <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings" role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Net Exposure</a>
-                  </li>
+          <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings"
+            role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Transfer Statement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="custom-content-below-settings-tab" data-toggle="pill" href="#custom-content-below-settings"
+            role="tab" aria-controls="custom-content-below-settings" aria-selected="false">Net Exposure</a>
+        </li>
       </ul>
 
       <div class="tab-content" id="custom-content-below-tabContent">
-            <div class="tab-pane fade active show" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
-                    <table class="apl-table days">
-                            <tbody><tr>
-                              <td class="_align-right ng-scope" translate="">Today</td>
-                              <td class="_align-right ng-scope" translate="">3 days</td>
-                              <td class="_align-right ng-scope" translate="">7 days</td>
-                              <td class="_align-right ng-scope" translate="">30 days</td>
-                              <td class="_align-right ng-scope" translate="">Lifetime</td>
-                            </tr>
-                          </tbody></table>
-                          <table class="apl-table apl-table-striped apl-table-hover">
-                            <tbody><!-- ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" >
-                              <td class="_align-right  -negative">-50.00</td>
-                              <td class="_align-right  -negative">-503.16</td>
-                              <td class="_align-right  -negative">-296.66</td>
-                              <td class="_align-right  -negative">-296.66</td>
-                              <td class="_align-right  -negative">-296.66</td>
-                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" >
-                              <td class="_align-right  -positive">0.00</td>
-                              <td class="_align-right  -negative">-4.10</td>
-                              <td class="_align-right  -negative">-13.22</td>
-                              <td class="_align-right  -negative">-13.22</td>
-                              <td class="_align-right  -negative">-13.22</td>
-                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" >
-                              <td class="_align-right  -negative">-50.00</td>
-                              <td class="_align-right  -negative">-507.26</td>
-                              <td class="_align-right  -negative">-309.88</td>
-                              <td class="_align-right  -negative">-309.88</td>
-                              <td class="_align-right  -negative">-309.88</td>
-                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] --><tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" >
-                              <td class="_align-right ">50.00</td>
-                              <td class="_align-right ">15,357.26</td>
-                              <td class="_align-right ">17,638.77</td>
-                              <td class="_align-right ">17,638.77</td>
-                              <td class="_align-right ">17,638.77</td>
-                            </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
-                          </tbody></table> 
+        <div class="tab-pane fade active show" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+          <div class="main-panel">
+            <div class="left-panel">
+              <table class="apl-table">
+                <tbody>
+                  <tr>
+                    <td translate="" class="ng-scope">Win</td>
+                  </tr>
+                  <tr>
+                    <td translate="" class="ng-scope">Comm</td>
+                  </tr>
+                  <tr>
+                    <td translate="" class="ng-scope">P&amp;L</td>
+                  </tr>
+                  <tr>
+                    <td translate="" class="ng-scope">Turnover</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
-               Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam. 
-            </div>
-            <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
-               Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna. 
-            </div>
-            <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
-               Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis. 
+            <div class="mid-panel">
+              <table class="apl-table days">
+                <tbody>
+                  <tr>
+                    <td class="_align-right ng-scope" translate="">Today</td>
+                    <td class="_align-right ng-scope" translate="">3 days</td>
+                    <td class="_align-right ng-scope" translate="">7 days</td>
+                    <td class="_align-right ng-scope" translate="">30 days</td>
+                    <td class="_align-right ng-scope" translate="">Lifetime</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="apl-table apl-table-striped apl-table-hover">
+                <tbody>
+                  <!-- ngRepeat: group in vm.summary[vm.key] -->
+                  <tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -negative">-947.08</td>
+                    <td class="_align-right  -negative">-878.86</td>
+                    <td class="_align-right  -negative">-878.86</td>
+                  </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
+                  <tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -negative">-5.35</td>
+                    <td class="_align-right  -negative">-16.93</td>
+                    <td class="_align-right  -negative">-16.93</td>
+                  </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
+                  <tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -positive">0.00</td>
+                    <td class="_align-right  -negative">-952.43</td>
+                    <td class="_align-right  -negative">-895.79</td>
+                    <td class="_align-right  -negative">-895.79</td>
+                  </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
+                  <tr ng-repeat="group in vm.summary[vm.key]" class="ng-scope" style="">
+                    <td class="_align-right ">0.00</td>
+                    <td class="_align-right ">0.00</td>
+                    <td class="_align-right ">13,231.75</td>
+                    <td class="_align-right ">26,773.58</td>
+                    <td class="_align-right ">26,773.58</td>
+                  </tr><!-- end ngRepeat: group in vm.summary[vm.key] -->
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
-        <!-- /.content -->
-     </div>
+        </div>
+
+        <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+          <div class="inner-tabs-content ng-scope" ng-if="tab.selected" style="">
+            <div ng-transclude="">
+              <div ng-if="vm.isMember" code="vm.code" class="ng-scope ng-isolate-scope">
+                <div class="content member-bet-list">
+                  <div class="order-listing">
+                    <div class="header _clearfix">
+                      <div class="align-dropdowns-to-right apl-report-filter ng-isolate-scope" set-date-filter="vm.setDateFilter(filters)"
+                        type="memberSummaryView">
+
+                        <input type="text" autocomplete="off" bsDatepicker id="fromdate" [maxDate]="todate" name="fromdate"
+                          value="{{fromdate | date:'dd-MM-yyyy'}}" maxlength="100" class="form-control" (bsValueChange)="getdate($event,1)"
+                          placeholder="From date" title="Please Enter date">
+
+                        <input type="text" autocomplete="off" bsDatepicker id="todate" [maxDate]="todate" name="fromdate"
+                          value="{{todate | date:'dd-MM-yyyy'}}" maxlength="100" class="form-control" (bsValueChange)="getdate($event,1)"
+                          placeholder="To date" title="Please Enter date">
+                        <!-- <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="datepicker-from ng-isolate-scope">
+              <span class="label-title">From</span>
+             </datepicker>
+          
+            <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="datepicker-to ng-isolate-scope">
+              <span class="label-title">To</span>
+            </datepicker> -->
+
+                        <!-- ngIf: fullFilter -->
+
+                        <button id="submit" class="apl-btn apl-btn-secondary" type="submit" ng-click="setFilter()"
+                          ng-disabled="!submitEnabled">
+                          <i class="apl-icon-search"></i> Search
+                        </button>
+
+                      </div>
+                      <!-- ngIf: false -->
+                    </div>
+
+                    <!-- ngIf: vm.orders.length === 0 && !vm.invalidDataRange -->
+                    <div class="filter-messages ng-scope" ng-if="vm.orders.length === 0 &amp;&amp; !vm.invalidDataRange">
+                      <span translate="" class="ng-scope">There is no data for this date range. Please select another
+                        date range.</span>
+                    </div><!-- end ngIf: vm.orders.length === 0 && !vm.invalidDataRange -->
+                    <!-- ngIf: vm.invalidDataRange -->
+
+                    <div class="pagination ng-isolate-scope ng-hide" ng-show="pageCount > 1" page="vm.pagination.page"
+                      page-count="vm.pagination.pageCount" navigate="vm.pagination.navigate()">
+                      <ul>
+                        <li>
+                          <a href="" ng-click="navigateTo(1)" ng-disabled="page === 1" disabled="disabled">
+                            <i class="apl-icon-angle-double-left"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="" ng-click="navigateTo(prevPage)" ng-disabled="page === prevPage" disabled="disabled">
+                            <i class="apl-icon-angle-left"></i>
+                          </a>
+                        </li>
+
+                        <!-- ngRepeat: item in pageList -->
+                        <li ng-repeat="item in pageList" ng-class="item.caption === page ? '-active' : ''" class="ng-scope -active">
+                          <!-- ngIf: item.isPage --><a href="" ng-click="navigateTo(item.caption)" ng-if="item.isPage"
+                            class="ng-binding ng-scope">1</a><!-- end ngIf: item.isPage -->
+                          <!-- ngIf: !item.isPage -->
+                        </li><!-- end ngRepeat: item in pageList -->
+
+                        <li>
+                          <a href="" ng-click="navigateTo(nextPage)" ng-disabled="page === nextPage" disabled="disabled">
+                            <i class="apl-icon-angle-right"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="" ng-click="navigateTo(pageCount)" ng-disabled="page === pageCount" disabled="disabled">
+                            <i class="apl-icon-angle-double-right"></i>
+                          </a>
+                        </li>
+                      </ul>
+
+                      <form ng-submit="submit()" class="ng-pristine ng-valid">
+                        <label>
+                          <input type="text" step="1" class="apl-input-number simple ng-isolate-scope ng-not-empty"
+                            ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder=""
+                            ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content=""
+                            tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="true" min="1">
+                          <span class="ng-binding">/&nbsp;&nbsp;&nbsp;1</span>
+                        </label>
+                      </form>
+                    </div>
+
+                    <!-- <ul class="apl-tabs-menu">
+                      <li ng-class="vm.isCurrent ? 'selected' : ''" ng-click="vm.selectCurrent()" translate="" class="ng-scope selected">Current</li>
+                      <li ng-class="!vm.isCurrent ? 'selected' : ''" ng-click="vm.selectPast()" translate="" class="ng-scope">Past</li>
+                    </ul> -->
+
+                    <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="custom-content-below-current-tab" data-toggle="pill" href="#custom-content-below-current"
+                          role="tab" aria-controls="custom-content-below-current" aria-selected="true">Current</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="custom-content-below-past-tab" data-toggle="pill" href="#custom-content-below-past"
+                          role="tab" aria-controls="custom-content-below-past" aria-selected="false">Past</a>
+                      </li>
+                    </ul>
+
+                    <div class="apl-tab-content">
+                      <div class="filters-wrap" class="tab-pane fade" id="custom-content-below-current" role="tabpanel"
+                        aria-labelledby="custom-content-below-current-tab">
+                        <label>
+                          <input type="radio" ng-model="vm.isMatched" ng-change="vm.selectMatched()" ng-value="true"
+                            class="filter-input ng-pristine ng-untouched ng-valid ng-not-empty" name="12791" value="true">
+                          <span translate="" class="ng-scope">Matched</span>
+                        </label>
+                        <label>
+                          <input type="radio" ng-model="vm.isMatched" ng-change="vm.selectUnmatched()" ng-value="false"
+                            class="filter-input ng-pristine ng-untouched ng-valid ng-not-empty" name="12793" value="false">
+                          <span translate="" class="ng-scope">Unmatched</span>
+                        </label>
+                      </div>
+                      <div class="table-wrap">
+                        <table class="tab-pane fade" id="custom-content-below-current" role="tabpanel" aria-labelledby="custom-content-below-current-tab">
+                          <thead>
+                            <tr>
+                              <th translate="" class="ng-scope">Settled</th>
+                              <th translate="" class="ng-scope">Description</th>
+                              <th translate="" class="ng-scope">IP Address</th>
+                              <th translate="" class="ng-scope">Type</th>
+                              <th translate="" class="numeric _align-right ng-scope">Odds</th>
+                              <th translate="" class="numeric _align-right ng-scope">Stake</th>
+                              <th translate="" class="numeric _align-right ng-scope">Profit/Loss</th>
+                              <th translate="" class="ng-scope">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- ngRepeat: order in vm.filteredOrders -->
+                          </tbody>
+                        </table>
+                        <table class="listing unsettled-bets apl-table apl-table-striped apl-table-hover" id="custom-content-below-past"
+                          role="tabpanel" aria-labelledby="custom-content-below-past-tab">
+                          <thead>
+                            <tr>
+                              <th translate="" class="ng-scope">Placed</th>
+                              <th translate="" class="ng-scope">Description</th>
+                              <th translate="" class="ng-scope">IP Address</th>
+                              <th translate="" class="ng-scope">Type</th>
+                              <th translate="" class="numeric _align-right ng-scope">Odds</th>
+                              <th translate="" class="numeric _align-right ng-scope">Stake</th>
+                              <th translate="" class="numeric _align-right ng-scope">Liability</th>
+                              <th translate="" class="_align-right ng-scope">Potential Profit</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- ngRepeat: order in vm.filteredOrders -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="pagination ng-isolate-scope ng-hide" ng-show="pageCount > 1" page="vm.pagination.page"
+                      page-count="vm.pagination.pageCount" navigate="vm.pagination.navigate()">
+                      <ul>
+                        <li>
+                          <a href="" ng-click="navigateTo(1)" ng-disabled="page === 1" disabled="disabled">
+                            <i class="apl-icon-angle-double-left"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="" ng-click="navigateTo(prevPage)" ng-disabled="page === prevPage" disabled="disabled">
+                            <i class="apl-icon-angle-left"></i>
+                          </a>
+                        </li>
+
+                        <!-- ngRepeat: item in pageList -->
+                        <li ng-repeat="item in pageList" ng-class="item.caption === page ? '-active' : ''" class="ng-scope -active">
+                          <!-- ngIf: item.isPage --><a href="" ng-click="navigateTo(item.caption)" ng-if="item.isPage"
+                            class="ng-binding ng-scope">1</a><!-- end ngIf: item.isPage -->
+                          <!-- ngIf: !item.isPage -->
+                        </li><!-- end ngRepeat: item in pageList -->
+
+                        <li>
+                          <a href="" ng-click="navigateTo(nextPage)" ng-disabled="page === nextPage" disabled="disabled">
+                            <i class="apl-icon-angle-right"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="" ng-click="navigateTo(pageCount)" ng-disabled="page === pageCount" disabled="disabled">
+                            <i class="apl-icon-angle-double-right"></i>
+                          </a>
+                        </li>
+                      </ul>
+
+                      <form ng-submit="submit()" class="ng-pristine ng-valid">
+                        <label>
+                          <input type="text" step="1" class="apl-input-number simple ng-isolate-scope ng-not-empty"
+                            ng-model="value" ng-change="change()" ng-class="{'-error': hasError}" apl-placeholder=""
+                            ng-disabled="disabled" input-restrict="aplRestrict" tooltips="" tooltip-content=""
+                            tooltip-visible="false" ng-keyup="keyup($event)" apl-simple="true" min="1">
+                          <span class="ng-binding">/&nbsp;&nbsp;&nbsp;1</span>
+                        </label>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- end ngIf: vm.isMember -->
+              <!-- ngIf: !vm.isMember -->
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
+          Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi
+          placerat
+          mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer
+          vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc.
+          Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio
+          volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus
+          ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac
+          ornare
+          magna.
+        </div>
+        <div class="tab-pane fade" id="custom-content-below-settings" role="tabpanel" aria-labelledby="custom-content-below-settings-tab">
+          Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare
+          sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie
+          tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra.
+          Etiam
+          eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac
+          habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- /.content -->
+</div>

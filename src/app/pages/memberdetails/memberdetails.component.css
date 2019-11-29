@@ -1,0 +1,98 @@
+.tabs-content {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #fff;
+    cursor: default;
+    background-color: #1c001f;
+    border: 1px solid #1c001f;
+    border-bottom-color: transparent;
+}
+.nav>li>a:hover, .nav>li>a:active, .nav>li>a:focus {
+    color: #fff;
+    background: #1c001f00;
+}
+.nav-tabs {
+    border-bottom: none;
+}
+.nav-tabs>li>a:hover {
+    border-color: none;
+}
+.tabs {
+    margin-top: 25px;
+}
+.login-box mat-icon, a {
+    color: #fff;
+}
+.content {
+    min-height: 250px;
+    padding: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    background-color: #330438;
+}
+.downline-reports .detail-header {
+    font-size: 16px;
+    border-bottom: 10px solid #1c001f;
+    margin: 0px 0px;
+    padding-bottom:5px;
+    padding-top: 5px;
+}
+.downline-reports .detail-header .back-link {
+    color: #1bddd4;
+    margin-right: 8px;
+    font-style: italic;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.apl-table.apl-table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(245, 245, 245, 0.1);
+}
+.apl-table.apl-table-hover tbody tr {
+    transition: background ease .5s;
+}
+.main-panel table tr td {
+    width: 20% !important;
+}
+.apl-table ._align-right {
+    text-align: right;
+}
+button{
+color: black;
+}
+.main-panel {
+    display: flex;
+    background-color: #1c001f;
+}
+.main-panel .left-panel {
+    width: 70px;
+    background-color: #1c001f;
+}
+.main-panel .left-panel table {
+    margin-top: 56px;
+    text-align: right;
+}
+.main-panel table tr td {
+    width: 20% !important;
+}
+.main-panel .mid-panel {
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.main-panel .mid-panel .days {
+    width: 100%;
+}
+* + .apl-table {
+    margin-top: 15px;
+}
+.apl-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 15px;
+}

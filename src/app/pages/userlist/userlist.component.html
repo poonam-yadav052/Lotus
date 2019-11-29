@@ -86,9 +86,9 @@
                                          <td>{{row.status == 'NULL' ? '':row.status}}</td>
                                          <td>{{row.firstName == 'NULL' ? '':row.firstName}}</td>
                                          <td>{{row.lastName == 'NULL' ? '':row.lastName}}</td>
-                                         <td>{{row.createdDate == 'NULL' ? '':row.createdDate}}</td>
-                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin}}</td>
-                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin}}</td>
+                                         <td>{{row.createdDate == 'NULL' ? '':row.createdDate | date: 'dd-MMM-yy h:mm:ss'}}</td>
+                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin | date: 'dd-MMM-yy h:mm:ss'}}</td>
+                                         <td>{{row.lastLogin == 'NULL' ? '':row.lastLogin | date: 'dd-MMM-yy h:mm:ss'}}</td>
                                         
      
                                       </tr>

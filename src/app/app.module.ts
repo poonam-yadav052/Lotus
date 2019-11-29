@@ -51,6 +51,7 @@ import { BalanceComponent } from './pages/balance/balance.component';
     AppRoutingModule,
     FormsModule,
     ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
     NgxSpinnerModule, NgxPaginationModule,Ng2SearchPipeModule, BrowserAnimationsModule

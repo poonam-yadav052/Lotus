@@ -1,8 +1,24 @@
+
+
+
 .memberListModal{
     color: white;
 }
 .headerPage{
     font-size: 1.5rem;
+}
+.box-body{
+    background-color: #19021b;
+}
+.contentMiddle{
+    color: #0f8422!important;
+    margin: auto!important;
+    text-align: center;
+}
+.contentMiddleEye{
+    
+    margin: auto!important;
+    text-align: center;
 }
 
 .ng-isolate-scope {

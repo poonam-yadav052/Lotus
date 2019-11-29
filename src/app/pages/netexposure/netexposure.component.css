@@ -13,3 +13,25 @@
 .content{
     padding: 0px;
 }
+ .filters {
+    position: relative;
+    display: inline-block;
+    margin-top: 14px;
+}
+.filters .sport-filters {
+    display: inline-block;
+}
+.filters .radio-selector {
+    display: inline-block;
+}
+.filters .radio-selector li {
+    display: inline-block;
+}
+.filters .radio-selector li label {
+    cursor: pointer;
+    margin-right: 16px;
+}
+.filters .radio-selector li input {
+    margin-right: 4px;
+    vertical-align: middle;
+}

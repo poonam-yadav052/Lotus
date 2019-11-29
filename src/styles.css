@@ -16,9 +16,31 @@ html ,body{
     letter-spacing: 0;
     box-sizing: border-box;
 }
-
-.close{
+.ngx-pagination a, .ngx-pagination button{
+color: #ccc!important;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .5;
+    z-index: 9999999;
+}
+button.close {
+    padding: 7px;
+    cursor: pointer;
     background-color: white;
+    border-radius: 25%;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    z-index: 999;
 }
 .modal-dialog{
     width: 800px;
