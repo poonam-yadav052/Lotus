@@ -52,7 +52,7 @@ export class BettickerComponent implements OnInit {
 
   getUploadedData() {
     this.spinner.show();
-    this.service.getMemberList(this.loginuserid).subscribe(
+    this.service.getBetTicker(this.loginuserid).subscribe(
       data => {
         if (data.messege == "Success") {
           this.members = data.result;

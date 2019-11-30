@@ -86,21 +86,21 @@
                                          <td>{{row.take == 'NULL' ? '':row.take}}</td>
                                          <td>{{row.give == 'NULL' ? '':row.give}}</td>
                                          <td>{{row.creditLimit == 'NULL' ? '':row.creditLimit}}</td>-->
-                                         <td class="ng-binding">developer</td>
+                                         <td class="ng-binding">{{row.loginName}}</td>
             <td>
               <span class="event-name text-ellipsis">
-                <span date-string="order.eventName" timestamp="order.marketTime" class="ng-binding ng-isolate-scope">New Zealand v England (1st Test)</span>
+                <span date-string="order.eventName" timestamp="order.marketTime" class="ng-binding ng-isolate-scope">{{row.event}}</span>
               </span>
             </td>
-            <td class="ng-binding">Match Odds</td>
-            <td ng-class="order.sideTypeClass" class="lay"><span class="selection-name text-ellipsis ng-binding" title="The Draw">The Draw</span></td>
-            <td class="text-right ng-binding">2.52</td>
-            <td class="text-right ng-binding">2.52</td>
-            <td class="text-right ng-binding">150</td>
-            <td class="text-right ng-binding">0</td>
-            <td class="text-right ng-binding -negative" ng-class="order.profitLiabilityStyles">-228</td>
+            <td class="ng-binding">{{row.market}}</td>
+            <td ng-class="order.sideTypeClass" class="lay"><span class="selection-name text-ellipsis ng-binding" title="The Draw">{{row.selection}}</span></td>
+            <td class="text-right ng-binding">{{row.odds}}</td>
+            <td class="text-right ng-binding">{{row.aveMatched}}</td>
+            <td class="text-right ng-binding">{{row.matched}}</td>
+            <td class="text-right ng-binding">{{row.unmatched}}</td>
+            <td class="text-right ng-binding -negative" ng-class="order.profitLiabilityStyles"></td>
             <td>
-              <time timestamp="order.lastUpdatedDate" type="time" class="ng-binding ng-isolate-scope">10:07:40</time>
+              <time timestamp="order.lastUpdatedDate" type="time" class="ng-binding ng-isolate-scope">{{row.lastUpdated}}</time>
             </td>
                                          
      

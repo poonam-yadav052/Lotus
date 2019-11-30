@@ -54,4 +54,11 @@ export class UploadFileService {
     return this.http.post(this.url+"login",formData,httpOptions)
   }
 
+  getBetTicker(loginid:number):Observable<any>{
+    console.log(this.url+"getUsers");
+    return this.http.get(this.url+"getBetTicker?userId="+loginid,httpOptions)
+  }
+
+
+
 }
